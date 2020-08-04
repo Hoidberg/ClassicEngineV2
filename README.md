@@ -5,11 +5,15 @@
     <img alt="GitHub" src="https://img.shields.io/github/license/Hoidberg/ClassicEngineV2?style=flat-square">
   </a>
   <a href="https://discord.gg/uH4VPrr">
-    <img alt="Discord" src="https://img.shields.io/discord/740251504358850670?color=blue&label=discord&style=flat-square">
+    <img alt="Discord" src="https://img.shields.io/badge/discord-ClassicEngine-blue?style=flat-square">
   </a>
 </div>
 
 <div>&nbsp;</div>
 
 ## About
-ClassicEngineV2 is
+ClassicEngineV2 is a series of scripts designed to restore the classic feel of ROBLOX
+
+## Join The Discussion
+* [ClassicEngine](https://discord.gg/uH4VPrr)
+* [Roblox OS Community](https://discord.gg/mhtGUS8)
