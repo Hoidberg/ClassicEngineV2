@@ -8,4 +8,7 @@
     <img alt="Discord" src="https://img.shields.io/discord/740251504358850670?color=blue&label=discord&style=flat-square">
   </a>
 </div>
-<h3 align="center">A series of scripts designed to restore the classic feel of ROBLOX</h3>
+
+<div align="center">
+  A series of scripts designed to restore the classic feel of ROBLOX
+</div>
