@@ -1,4 +1,4 @@
-<a href="https://github.com/Hoidberg/ClassicEngineV2/" style="text-decoration:none;"><h1 align="center">ClassicEngineV2</h1></a>
+<h1 align="center" style="border: 2px solid powderblue;">ClassicEngineV2</h1>
 
 <div align="center">
   <a href="https://github.com/Hoidberg/ClassicEngineV2/blob/master/LICENSE">
