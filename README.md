@@ -4,6 +4,8 @@
   <a href="https://github.com/Hoidberg/ClassicEngineV2/blob/master/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/Hoidberg/ClassicEngineV2?style=flat-square">
   </a>
-  <img alt="GitHub forks" src="https://img.shields.io/github/forks/Hoidberg/ClassicEngineV2?style=flat-square">
+  <a href="https://discord.gg/uH4VPrr">
+    <img alt="Discord" src="https://img.shields.io/discord/740251504358850670?color=blue&label=discord&style=flat-square">
+  </a>
 </div>
 <h3 align="center">A series of scripts designed to restore the classic feel of ROBLOX</h3>
