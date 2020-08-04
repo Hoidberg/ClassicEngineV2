@@ -5,8 +5,11 @@
     <img alt="GitHub" src="https://img.shields.io/github/license/Hoidberg/ClassicEngineV2?style=flat-square">
   </a>
   <a href="https://discord.gg/uH4VPrr">
-    <img alt="Discord" src="https://img.shields.io/badge/discord-ClassicEngine-blue?style=flat-square">
+    <img alt="Discord" src="https://img.shields.io/badge/discord-ClassicEngine-blue?style=flat-square&logo=discord">
   </a>
+  <a href="https://www.lua.org/">
+		<img alt="Language" src="https://img.shields.io/badge/language-lua-lightgrey?style=flat-square&logo=lua">
+	</a>
 </div>
 
 <div>&nbsp;</div>
