@@ -2,5 +2,5 @@
 ClassicEngineV2 is a series of scripts designed to restore the classic feel of ROBLOX
 
 ## Join The Discussion
-* [ClassicEngine](https://discord.gg/uH4VPrr)
-* [Roblox OS Community](https://discord.gg/mhtGUS8)
+* <a href="https://discord.gg/uH4VPrr" style="text-decoration: none;">ClassicEngine</a>
+* <a href="https://discord.gg/mhtGUS8" style="text-decoration: none;">Roblox OS Community</a>
