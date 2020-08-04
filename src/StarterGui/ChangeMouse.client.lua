@@ -1,4 +1,7 @@
-local ICONS = {
+local mainTable = {}
+local self = setmetatable({}, mainTable)
+
+local self._ICONS = {
 	FirstPersonIcon = "rbxassetid://5380228628",
 	ThirdPersonIcon = "rbxassetid://5380234202"
 }
@@ -17,8 +20,8 @@ end
 
 RunService.RenderStepped:Connect(function()
 	if not IsFirstPerson() then
-		mouse.Icon = ICONS.ThirdPersonIcon
+		mouse.Icon = self._ICONS.ThirdPersonIcon
 	elseif IsFirstPerson() then
-		mouse.Icon = ICONS.FirstPersonIcon
+		mouse.Icon = self._ICONS.FirstPersonIcon
 	end
 end)
