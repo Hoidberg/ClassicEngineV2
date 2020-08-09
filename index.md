@@ -11,6 +11,8 @@
 	<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Hoidberg/ClassicEngineV2?style=flat-square&logo=GitHub">
 </div>
 
+<div>&nbsp;</div>
+
 ## About
 <p>ClassicEngineV2 is incomplete and is not considered a Game Engine</p>
 
