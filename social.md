@@ -1,3 +1,8 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0" nonce="CyMenQSq"></script>
+
 ## Stay up-to-date on all things ClassicEngine!
 * <a href="https://www.facebook.com/Classic-Engine-V2-100944811725677/">Facebook</a>
 * <a href="https://twitter.com/hoidberg">Twitter</a>
+
+<div class="fb-page" data-href="https://www.facebook.com/Classic-Engine-V2-100944811725677/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Classic-Engine-V2-100944811725677/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Classic-Engine-V2-100944811725677/">Classic Engine V2</a></blockquote></div>
