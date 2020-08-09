@@ -140,7 +140,7 @@ local function isSunOccluded(sunDir)
 	local ignore = {}
 	local occluded = false
 	while true do
-		local hit, pos = workspace:FindPartOnRayWithIgnoreList(ray, ignore)
+		local hit = workspace:FindPartOnRayWithIgnoreList(ray, ignore)
 		if hit then
 			local t = hit.Transparency + hit.LocalTransparencyModifier
 			if t <= 0 then
@@ -187,7 +187,6 @@ local function createLenseBeam(lense, id)
 end
 	
 local function updateLensFlare()
-	local vpSize = c.ViewportSize
 	local sunDir = Lighting:GetSunDirection()
 	local sunWrldSpace = sunDir * 10e6
 	local sunScrnSpace, inView = as_Vector2(c:WorldToViewportPoint(sunWrldSpace))
