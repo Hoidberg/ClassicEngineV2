@@ -2,8 +2,6 @@ local RunService = game:GetService('RunService')
 local UserInputService = game:GetService('UserInputService')
 local PlayersService = game:GetService('Players')
 local VRService = game:GetService("VRService")
-local StarterPlayer = game:GetService('StarterPlayer')
-
 
 local RootCamera = script:WaitForChild('RootCamera')
 
@@ -72,7 +70,6 @@ local EnabledOcclusion = nil
 
 local cameraSubjectChangedConn = nil
 local cameraTypeChangedConn = nil
-local renderSteppedConn = nil
 
 local lastInputType = nil
 local hasLastInput = false
@@ -276,11 +273,11 @@ local function OnPlayerAdded(player)
 		end
 	end)
 
-	player.Changed:connect(function(prop)
+	player.Changed:connect(function()
 		OnCameraMovementModeChange(getCurrentCameraMode())
 	end)
 
-	GameSettings.Changed:connect(function(prop)
+	GameSettings.Changed:connect(function()
 		OnCameraMovementModeChange(getCurrentCameraMode())
 	end)
 
