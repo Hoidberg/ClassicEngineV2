@@ -26,3 +26,6 @@
 ## Join The Discussion
 * <a href="https://discord.gg/uH4VPrr">ClassicEngine</a>
 * <a href="https://discord.gg/mhtGUS8">Roblox OS Community</a>
+
+## Pages
+* <a href="https://hoidberg.github.io/ClassicEngineV2/social.html">Social Media</a>
