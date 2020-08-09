@@ -20,6 +20,7 @@
 
 ## Disclaimer
 <h3><b>DO NOT PUBLISH THIS TO ROBLOX WITHOUT PROPERLY CREDITING THE CREATOR</b></h3>
+<p>if you see that someone published a game using ClassicEngineV2 without properly crediting the creator, create an issue under the label "uncredited games" with the creators username, and the link to the game.</p>
 
 ## Installing
 <p>The .rbxlx file can be found <a href="https://github.com/Hoidberg/ClassicEngineV2/releases/tag/v0.5.1">here</a>, in order for the engine to work, you must first publish the file to roblox and change the rig from R15 to R6 in the settings</p>
