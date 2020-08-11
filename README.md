@@ -11,6 +11,7 @@
 		<img alt="Language" src="https://img.shields.io/badge/language-lua-lightgrey?style=flat-square&logo=lua">
 	</a>
 	<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Hoidberg/ClassicEngineV2?style=flat-square&logo=GitHub">
+	<img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/Hoidberg/ClassicEngineV2/luacheck/master?label=luacheck&style=flat-square&logo=GitHub">
 </div>
 
 <div>&nbsp;</div>
