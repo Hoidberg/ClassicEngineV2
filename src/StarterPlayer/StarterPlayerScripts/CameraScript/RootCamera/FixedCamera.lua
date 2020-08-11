@@ -1,8 +1,6 @@
 local PlayersService = game:GetService('Players')
 local RootCameraCreator = require(script.Parent)
 
-local ZERO_VECTOR2 = Vector2.new(0, 0)
-
 local CFrame_new = CFrame.new
 local math_min = math.min
 
@@ -34,7 +32,7 @@ local function CreateFixedCamera()
 				zoom = 0.1
 			end
 			local newLookVector = self:RotateCamera(self:GetCameraLook(), self.RotateInput)
-			self.RotateInput = ZERO_VECTOR2
+			self.RotateInput = Vector2.new(0, 0)
 			
 			camera.CoordinateFrame = CFrame_new(camera.Focus.p - (zoom * newLookVector), camera.Focus.p)
 			self.LastCameraTransform = camera.CFrame
