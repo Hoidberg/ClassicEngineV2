@@ -19,7 +19,6 @@ local LENS_FLARE_CONFIGURATION =
 
 --local LENS_FLARE_CONFIGURATION =
 --{
---	
 --	Scale = 1/3;
 --	Texture = "rbxasset://textures/shadowblurmask.png";
 --	Transparency = 0.7;
