@@ -12,6 +12,7 @@
 	</a>
 	<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Hoidberg/ClassicEngineV2?style=flat-square&logo=GitHub">
 	<img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/Hoidberg/ClassicEngineV2/luacheck/master?label=luacheck&style=flat-square&logo=GitHub">
+	<img alt="Website" src="https://img.shields.io/website?style=flat-square&url=https%3A%2F%2Fhoidberg.github.io%2FClassicEngineV2%2F">
 </div>
 
 <div>&nbsp;</div>
