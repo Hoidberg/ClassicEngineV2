@@ -22,7 +22,6 @@ local RightShoulder = waitForChild(Torso, "Right Shoulder")
 local LeftShoulder = waitForChild(Torso, "Left Shoulder")
 local RightHip = waitForChild(Torso, "Right Hip")
 local LeftHip = waitForChild(Torso, "Left Hip")
-local Neck = waitForChild(Torso, "Neck")
 local Humanoid = waitForChild(Figure, "Humanoid")
 local pose = "Standing"
 	
