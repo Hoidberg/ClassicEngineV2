@@ -8,8 +8,8 @@
 
 -- Classic Style
 
-local LENS_FLARE_CONFIGURATION = 
-{	
+local LENS_FLARE_CONFIGURATION =
+{
 	Scale = 1 / 8;
 	Texture = "rbxasset://textures/whiteCircle.png";
 	Transparency = 0.9;
@@ -40,7 +40,7 @@ local LENS_FLARE_CONFIGURATION =
 	
 --]]
 
-local LENSES = 
+local LENSES =
 {
 	{
 		Color = Color3.fromRGB(200, 255, 200),
@@ -166,7 +166,7 @@ local function createLenseBeam(lense, id)
 	local a1 = Instance.new("Attachment")
 	a1.Name = id .. "_A1"
 	a1.Parent = lensFlareNode
-	lense.A1 = a1	
+	lense.A1 = a1
 	
 	local beam = Instance.new("Beam")
 	beam.Name = id
