@@ -10,9 +10,15 @@
   <a href="https://www.lua.org/">
 		<img alt="Language" src="https://img.shields.io/badge/language-lua-lightgrey?style=flat-square&logo=lua">
 	</a>
-	<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Hoidberg/ClassicEngineV2?style=flat-square&logo=GitHub">
-	<img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/Hoidberg/ClassicEngineV2/luacheck/master?label=luacheck&style=flat-square&logo=GitHub">
-	<img alt="Website" src="https://img.shields.io/website?style=flat-square&url=https%3A%2F%2Fhoidberg.github.io%2FClassicEngineV2%2F">
+	<a href="https://github.com/Hoidberg/ClassicEngineV2/releases">
+		<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Hoidberg/ClassicEngineV2?style=flat-square&logo=GitHub">
+	</a>
+	<a href="https://github.com/Hoidberg/ClassicEngineV2/actions?query=workflow%3Aluacheck">
+		<img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/Hoidberg/ClassicEngineV2/luacheck/master?label=luacheck&style=flat-square&logo=GitHub">
+	</a>
+	<a href="https://hoidberg.github.io/ClassicEngineV2/">
+		<img alt="Website" src="https://img.shields.io/website?style=flat-square&url=https%3A%2F%2Fhoidberg.github.io%2FClassicEngineV2%2F">
+	</a>
 </div>
 
 <div>&nbsp;</div>
