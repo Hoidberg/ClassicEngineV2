@@ -158,17 +158,16 @@ end
 	
 local function createLenseBeam(lense, id)
 	local radius = lense.Radius * LENS_FLARE_CONFIGURATION.Scale
-		
 	local a0 = Instance.new("Attachment")
 	a0.Name = id .. "_A0"
 	a0.Parent = lensFlareNode
 	lense.A0 = a0
-		
+	
 	local a1 = Instance.new("Attachment")
 	a1.Name = id .. "_A1"
 	a1.Parent = lensFlareNode
-	lense.A1 = a1
-		
+	lense.A1 = a1	
+	
 	local beam = Instance.new("Beam")
 	beam.Name = id
 	beam.Color = ColorSequence.new(lense.Color)
@@ -182,7 +181,6 @@ local function createLenseBeam(lense, id)
 	beam.Transparency = NumberSequence.new(LENS_FLARE_CONFIGURATION.Transparency)
 	beam.Parent = lensFlareNode
 	lense.Beam = beam
-	
 	return beam
 end
 	
@@ -192,7 +190,7 @@ local function updateLensFlare()
 	local sunScrnSpace, inView = as_Vector2(c:WorldToViewportPoint(sunWrldSpace))
 	local sunScrnSpaceInv = c.ViewportSize - sunScrnSpace
 	local enabled = (inView and not isSunOccluded(sunDir))
-		
+	
 	for i, lense in ipairs(LENSES) do
 		local beam = lense.Beam or createLenseBeam(lense, i)
 		beam.Enabled = enabled
@@ -206,5 +204,4 @@ local function updateLensFlare()
 		end
 	end
 end
-	
 RunService:BindToRenderStep("UpdateLensFlare", 201, updateLensFlare)
