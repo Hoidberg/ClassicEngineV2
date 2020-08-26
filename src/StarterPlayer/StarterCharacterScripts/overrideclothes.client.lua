@@ -1,7 +1,8 @@
 local RunService = game:GetService("RunService")
 
 RunService.RenderStepped:Connect(function()
-	if script.Parent:IsA("Model") and script.Parent:FindFirstChild("Humanoid") then -- check if the script is in the players character
+	-- check if the script is in the players character
+	if script.Parent:IsA("Model") and script.Parent:FindFirstChild("Humanoid") then
 		if not script.Parent:FindFirstChildWhichIsA("Shirt") then
 			local shirt = Instance.new("Shirt", script.Parent) do
 				shirt.Name = "oldShirt"
