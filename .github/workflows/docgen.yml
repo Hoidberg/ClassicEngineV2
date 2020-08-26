@@ -1,0 +1,9 @@
+name: Lua docs generator
+on: [push, pull_request]
+jobs:
+  docgen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: docgen
+        uses: p3lim/lua-doc-parser@1
+  
