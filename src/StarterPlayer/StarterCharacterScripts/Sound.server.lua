@@ -1,18 +1,9 @@
 -- util
 
-function waitForChild(parent, childName)
-	local child = parent:findFirstChild(childName)
-	if child then return child end
-	while true do
-		child = parent.ChildAdded:wait()
-		if child.Name==childName then return child end
-	end
-end
-
-function newSound(id)
+local function newSound(id)
 	local sound = Instance.new("Sound")
 	sound.SoundId = id
-	sound.archivable = false
+	sound.Archivable = false
 	sound.Parent = script.Parent.Head
 	return sound
 end
@@ -28,16 +19,15 @@ local sRunning = newSound("rbxasset://sounds/bfsl-minifigfoots1.mp3")
 sRunning.Looped = true
 
 local Figure = script.Parent
-local Head = waitForChild(Figure, "Head")
-local Humanoid = waitForChild(Figure, "Humanoid")
+local Humanoid = Figure:WaitForChild("Humanoid")
 
 -- functions
 
-function onDied()
+local function onDied()
 	sDied:Play()
 end
 
-function onState(state, sound)
+local function onState(state, sound)
 	if state then
 		sound:Play()
 	else
@@ -45,7 +35,7 @@ function onState(state, sound)
 	end
 end
 
-function onRunning(speed)
+local function onRunning(speed)
 	if speed>0 then
 		sRunning:Play()
 	else
