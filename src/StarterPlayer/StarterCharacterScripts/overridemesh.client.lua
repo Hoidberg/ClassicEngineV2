@@ -1,7 +1,8 @@
 local RunService = game:GetService("RunService")
 
 RunService.RenderStepped:Connect(function()
-	if script.Parent:IsA("Model") and script.Parent:FindFirstChild("Humanoid") then -- check if the script is in the players character
+	-- check if the script is in the players character
+	if script.Parent:IsA("Model") and script.Parent:FindFirstChild("Humanoid") then
 		if not script.Parent:FindFirstChild("deletemesh") and not script.Parent:FindFirstChild("CL_TorsoMesh") then
 			local larm = Instance.new("CharacterMesh", script.Parent) do
 				larm.Name = "CL_LeftArmMesh"
