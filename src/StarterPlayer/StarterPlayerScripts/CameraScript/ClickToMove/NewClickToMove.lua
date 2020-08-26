@@ -6,7 +6,6 @@ local PathfindingService = game:GetService("PathfindingService")
 local PlayerService = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local DebrisService = game:GetService('Debris')
-local ReplicatedStorage = game:GetService('ReplicatedStorage')
 local tweenService = game:GetService("TweenService")
 
 local CameraScript = script:FindFirstAncestor("CameraScript")
@@ -39,16 +38,12 @@ local math_atan2 = math.atan2
 
 local Vector3_new = Vector3.new
 local Vector2_new = Vector2.new
-local CFrame_new = CFrame.new
 
 local CurrentSeatPart = nil
 local DrivingTo = nil
 
 local XZ_VECTOR3 = Vector3_new(1, 0, 1)
-local ZERO_VECTOR3 = Vector3_new(0, 0, 0)
 local ZERO_VECTOR2 = Vector2_new(0, 0)
-
-local lastFailedPosition = nil
 
 local BindableEvent_OnFailStateChanged = nil
 if UIS.TouchEnabled then
@@ -151,11 +146,10 @@ do
 	Utility.FindChacterAncestor = FindChacterAncestor
 
 	local function Raycast(ray, ignoreNonCollidable, ignoreList)
-		local ignoreList = ignoreList or {}
 		local hitPart, hitPos, hitNorm, hitMat = RayCastIgnoreList(workspace, ray, ignoreList)
 		if hitPart then
 			if ignoreNonCollidable and hitPart.CanCollide == false then
-				table.insert(ignoreList, hitPart)
+				table.insert(ignoreList, (#ignoreList + 1), hitPart)
 				return Raycast(ray, ignoreNonCollidable, ignoreList)
 			end
 			return hitPart, hitPos, hitNorm, hitMat
@@ -217,7 +211,6 @@ end
 ---------------------------------------------------------
 
 local Signal = Utility.Signal
-local Create = Utility.Create
 
 --------------------------CHARACTER CONTROL-------------------------------
 local CurrentIgnoreList
@@ -269,7 +262,7 @@ local function createNewPopup(popupType)
 	end
 	
 	local dataStructure = {}
-	dataStructure.Model = newModel	
+	dataStructure.Model = newModel
 	
 	function dataStructure:TweenIn()
 		local tween1 = tweenService:Create(self.Model,
