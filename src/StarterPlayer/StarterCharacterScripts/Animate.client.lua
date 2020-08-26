@@ -11,35 +11,35 @@ local pose = "Standing"
 local toolAnim = "None"
 local toolAnimTime = 0
 -- functions
-function onRunning(speed)
+local function onRunning(speed)
 	if speed > 0 then
 		pose = "Running"
 	else
 		pose = "Standing"
 	end
 end
-function onDied()
+local function onDied()
 	pose = "Dead"
 end
-function onJumping()
+local function onJumping()
 	pose = "Jumping"
 end
-function onClimbing()
+local function onClimbing()
 	pose = "Climbing"
 end
-function onGettingUp()
+local function onGettingUp()
 	pose = "GettingUp"
 end
-function onFreeFall()
+local function onFreeFall()
 	pose = "FreeFall"
 end
-function onFallingDown()
+local function onFallingDown()
 	pose = "FallingDown"
 end
-function onSeated()
+local function onSeated()
 	pose = "Seated"
 end
-function moveJump()
+local function moveJump()
 	RightShoulder.MaxVelocity = 0.5
 	LeftShoulder.MaxVelocity = 0.5
 	RightShoulder.DesiredAngle = 3.14
@@ -48,7 +48,7 @@ function moveJump()
 	LeftHip.DesiredAngle = 0
 end
 -- same as jump for now
-function moveFreeFall()
+local function moveFreeFall()
 	RightShoulder.MaxVelocity = 0.5
 	LeftShoulder.MaxVelocity = 0.5
 	RightShoulder.DesiredAngle = 3.14
@@ -56,7 +56,7 @@ function moveFreeFall()
 	RightHip.DesiredAngle = 0
 	LeftHip.DesiredAngle = 0
 end
-function moveSit()
+local function moveSit()
 	RightShoulder.MaxVelocity = 0.15
 	LeftShoulder.MaxVelocity = 0.15
 	RightShoulder.DesiredAngle = 3.14 / 2
@@ -64,7 +64,7 @@ function moveSit()
 	RightHip.DesiredAngle = 3.14 / 2
 	LeftHip.DesiredAngle = -3.14 / 2
 end
-function getTool()	
+local function getTool()
 	for _, kid in ipairs(Figure:GetChildren()) do
 		if kid.className == "Tool" then
 			return kid
@@ -72,7 +72,7 @@ function getTool()
 	end
 	return nil
 end
-function getToolAnim(tool)
+local function getToolAnim(tool)
 	for _, c in ipairs(tool:GetChildren()) do
 		if c.Name == "toolanim" and c.className == "StringValue" then
 			return c
@@ -80,12 +80,11 @@ function getToolAnim(tool)
 	end
 	return nil
 end
-function animateTool()
+local function animateTool()
 	if (toolAnim == "None") then
 		RightShoulder.DesiredAngle = 1.57
 		return
 	end
-	
 	if (toolAnim == "Slash") then
 		RightShoulder.MaxVelocity = 0.5
 		RightShoulder.DesiredAngle = 0
@@ -103,7 +102,7 @@ function animateTool()
 		return
 	end
 end
-function move(time)
+local function move(time)
 	local amplitude
 	local frequency
 	if (pose == "Jumping") then
@@ -125,7 +124,7 @@ function move(time)
 		amplitude = 1
 		frequency = 9
 	elseif (pose == "Climbing") then
-		RightShoulder.MaxVelocity = 0.5 
+		RightShoulder.MaxVelocity = 0.5
 		LeftShoulder.MaxVelocity = 0.5
 		amplitude = 1
 		frequency = 9
@@ -134,14 +133,14 @@ function move(time)
 		amplitude = 0.1
 		frequency = 1
 	end
-	desiredAngle = amplitude * math.sin(time * frequency)
+	local desiredAngle = amplitude * math.sin(time * frequency)
 	RightShoulder.DesiredAngle = desiredAngle + climbFudge
 	LeftShoulder.DesiredAngle = desiredAngle - climbFudge
 	RightHip.DesiredAngle = -desiredAngle
 	LeftHip.DesiredAngle = -desiredAngle
 	local tool = getTool()
 	if tool then
-		animStringValueObject = getToolAnim(tool)
+		local animStringValueObject = getToolAnim(tool)
 		if animStringValueObject then
 			toolAnim = animStringValueObject.Value
 			-- message recieved, delete StringValue
@@ -168,7 +167,6 @@ Humanoid.FreeFalling:connect(onFreeFall)
 Humanoid.FallingDown:connect(onFallingDown)
 Humanoid.Seated:connect(onSeated)
 -- main program
-local runService = game:service("RunService");
 while Figure.Parent ~= nil do
 	local _, time = wait(0.1)
 	move(time)
