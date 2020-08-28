@@ -23,10 +23,6 @@ local zoomFX = Instance.new("Sound", PlayersService.LocalPlayer) do
 	zoomFX.SoundId = "rbxassetid://12222183"
 end
 
-local function clamp(low, high, num)
-	return num > high and high or num < low and low or num
-end
-
 local function IsFinite(num)
 	return num == num and num ~= 1/0 and num ~= -1/0
 end
@@ -139,9 +135,9 @@ local function CreateFollowCamera()
 								forwardVector = cameraSubject.CFrame.lookVector
 							end
 							
-							tweenSpeed = clamp(0, tweenMaxSpeed, tweenSpeed + tweenAcceleration * timeDelta)
+							tweenSpeed = math.clamp(0, tweenMaxSpeed, tweenSpeed + tweenAcceleration * timeDelta)
 							
-							local percent = clamp(0, 1, tweenSpeed*timeDelta)
+							local percent = math.clamp(0, 1, tweenSpeed*timeDelta)
 							if not isClimbing and self:IsInFirstPerson() then
 								percent = 1
 							end
@@ -174,12 +170,12 @@ local function CreateFollowCamera()
 				lastZoom = zoom
 				zoomFX:Play()
 				newLookVector = (newLookVector * XZ_VECTOR).Unit
-					
+				
 				local upY = math.min(6, zoom * -.025)
 				newLookVector = (newLookVector + (UP_VECTOR * upY)).Unit
 			end
 			self.RotateInput = ZERO_VECTOR2
-
+			
 			if VRService.VREnabled then
 				camera.Focus = self:GetVRFocus(subjectPosition, timeDelta)
 			elseif self:IsPortraitMode() then
@@ -188,7 +184,7 @@ local function CreateFollowCamera()
 				camera.Focus = CFrame_new(subjectPosition)
 			end
 			camera.CFrame = CFrame_new(camera.Focus.p - (zoom * newLookVector), camera.Focus.p) + Vector3.new(0, self:GetCameraHeight(), 0)
-
+			
 			self.LastCameraTransform = camera.CFrame
 			self.LastCameraFocus = camera.Focus
 			if isInVehicle or isOnASkateboard and cameraSubject:IsA('BasePart') then
