@@ -42,7 +42,6 @@ local Vector2_new = Vector2.new
 local CurrentSeatPart = nil
 local DrivingTo = nil
 
-local XZ_VECTOR3 = Vector3_new(1, 0, 1)
 local ZERO_VECTOR2 = Vector2_new(0, 0)
 
 local BindableEvent_OnFailStateChanged = nil
@@ -169,12 +168,10 @@ do
 		return avgPos
 	end
 	Utility.AveragePoints = AveragePoints
-
 	local function FuzzyEquals(numa, numb)
 		return numa + 0.1 > numb and numa - 0.1 < numb
 	end
 	Utility.FuzzyEquals = FuzzyEquals
-
 	local LastInput = 0
 	UIS.InputBegan:connect(function(inputObject, wasSunk)
 		if not wasSunk then
@@ -237,14 +234,11 @@ end
 
 -----------------------------------PATHER--------------------------------------
 
-local function createNewPopup(popupType)	
-	
+local function createNewPopup(popupType)
 	local newModel = Instance.new("ImageHandleAdornment")
-	
 	newModel.AlwaysOnTop = false
 	newModel.Image = "rbxasset://textures/Cursors/Gamepad/Pointer@2x.png"
 	newModel.ZIndex = 2
-	
 	local size = ZERO_VECTOR2
 	if popupType == "DestinationPopup" then
 		newModel.Color3 = Color3.fromRGB(0, 175, 255)
@@ -260,7 +254,6 @@ local function createNewPopup(popupType)
 		size = Vector2.new(3,3)
 		newModel.ZIndex = 1
 	end
-	
 	local dataStructure = {}
 	dataStructure.Model = newModel
 	
