@@ -22,10 +22,6 @@ local zoomFX = Instance.new("Sound", PlayersService.LocalPlayer) do
 	zoomFX.SoundId = "rbxassetid://12222183"
 end
 
-local function clamp(low, high, num)
-	return (num > high and high or num < low and low or num)
-end
-
 local function IsFinite(num)
 	return num == num and num ~= 1/0 and num ~= -1/0
 end
@@ -84,7 +80,7 @@ local function CreateClassicCamera()
 					userPanningTheCamera = true
 					self.RotateInput = self.RotateInput + (gamepadRotation * delta)
 				end
-
+				
 				local angle = 0
 				if not (isInVehicle or isOnASkateboard) then
 					angle = angle + (self.TurningLeft and -120 or 0)
@@ -97,7 +93,7 @@ local function CreateClassicCamera()
 				end
 			end
 		end
-
+		
 		-- Reset tween speed if user is panning
 		if userPanningTheCamera then
 			tweenSpeed = 0
@@ -117,7 +113,7 @@ local function CreateClassicCamera()
 				-- We need to use the right vector of the camera after rotation, not before
 				local newLookVector = self:RotateCamera(self:GetCameraLook(), self.RotateInput)
 				local offset = ((newLookVector * XZ_VECTOR):Cross(UP_VECTOR).unit * 1.75)
-
+				
 				if IsFiniteVector3(offset) then
 					subjectPosition = subjectPosition + offset
 				end
@@ -139,9 +135,9 @@ local function CreateClassicCamera()
 								forwardVector = cameraSubject.CFrame.lookVector
 							end
 							
-							tweenSpeed = clamp(0, tweenMaxSpeed, tweenSpeed + tweenAcceleration * timeDelta)
-	
-							local percent = clamp(0, 1, tweenSpeed * timeDelta)
+							tweenSpeed = math.clamp(0, tweenMaxSpeed, tweenSpeed + tweenAcceleration * timeDelta)
+							
+							local percent = math.clamp(0, 1, tweenSpeed * timeDelta)
 							if self:IsInFirstPerson() then
 								percent = 1
 							end
@@ -154,16 +150,16 @@ local function CreateClassicCamera()
 					end
 				end
 			end
-
+			
 			local VREnabled = VRService.VREnabled
 			camera.Focus = VREnabled and self:GetVRFocus(subjectPosition, timeDelta) or CFrame_new(subjectPosition)
-
+			
 			local cameraFocusP = camera.Focus.p
 			if VREnabled and not self:IsInFirstPerson() then
 				local cameraHeight = self:GetCameraHeight()
 				local vecToSubject = (subjectPosition - camera.CFrame.p)
 				local distToSubject = vecToSubject.magnitude
-
+				
 				-- Only move the camera if it exceeded a maximum distance to the subject in VR
 				if distToSubject > zoom or self.RotateInput.x ~= 0 then
 					local desiredDist = math_min(distToSubject, zoom)
@@ -193,7 +189,7 @@ local function CreateClassicCamera()
 				self.RotateInput = ZERO_VECTOR2
 				camera.CFrame = CFrame_new(cameraFocusP - (zoom * newLookVector), cameraFocusP)
 			end
-
+			
 			self.LastCameraTransform = camera.CFrame
 			self.LastCameraFocus = camera.Focus
 			if (isInVehicle or isOnASkateboard) and cameraSubject:IsA('BasePart') then
