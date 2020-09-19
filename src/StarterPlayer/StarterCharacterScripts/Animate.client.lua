@@ -1,5 +1,6 @@
 -- ANIMATION
 -- declarations
+local RunService = game:GetService("RunService")
 local Figure = script.Parent
 local Torso = Figure:WaitForChild("Torso")
 local RightShoulder = Torso:WaitForChild("Right Shoulder")
@@ -11,6 +12,13 @@ local pose = "Standing"
 local toolAnim = "None"
 local toolAnimTime = 0
 -- functions
+local wait = function(n)
+	local dt = 0
+	while dt < n do
+		dt = dt + RunService.Heartbeat:Wait()
+	end
+	return false, dt
+end
 local function onRunning(speed)
 	if speed > 0 then
 		pose = "Running"
