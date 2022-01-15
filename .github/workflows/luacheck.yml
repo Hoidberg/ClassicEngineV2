@@ -2,7 +2,7 @@ name: luacheck
 on: [push, pull_request]
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu-20.04
     steps:
       - uses: actions/checkout@master
       - name: lint
