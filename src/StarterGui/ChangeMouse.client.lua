@@ -4,12 +4,10 @@ local ICONS = {
 }
 
 local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
 
-local player = Players.LocalPlayer
 local camera = workspace.CurrentCamera
-local head = game.Players.LocalPlayer.Character:WaitForChild("Head")
-local mouse = player:GetMouse()
+local head = Players.LocalPlayer.Character:WaitForChild("Head")
+local mouse = Players.LocalPlayer.LocalPlayer:GetMouse()
 
 local function IsFirstPerson()
      return (head.CFrame.p - camera.CFrame.p).Magnitude < 4.5
