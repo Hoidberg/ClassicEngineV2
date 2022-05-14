@@ -24,7 +24,7 @@
 <div>&nbsp;</div>
 
 ## About
-<p>ClassicEngineV2 is incomplete and is not considered a Game Engine</p>
+<p>ClassicEngineV2 is complete</p>
 
 ## Disclaimer
 <h3><b>DO NOT PUBLISH THIS TO ROBLOX WITHOUT PROPERLY CREDITING THE CREATOR</b></h3>
