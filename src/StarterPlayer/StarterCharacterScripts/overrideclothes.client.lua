@@ -1,6 +1,4 @@
-local RunService = game:GetService("RunService")
-
-RunService.RenderStepped:Connect(function()
+while true do
 	-- check if the script is in the players character
 	if script.Parent:IsA("Model") and script.Parent:FindFirstChild("Humanoid") then
 		if not script.Parent:FindFirstChildWhichIsA("Shirt") then
@@ -19,4 +17,4 @@ RunService.RenderStepped:Connect(function()
 			script.Parent:FindFirstChild("oldPants"):Destroy()
 		end
 	end
-end)
+end
