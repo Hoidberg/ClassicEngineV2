@@ -6,6 +6,16 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: lint
-        uses: Roang-zero1/factorio-mod-luacheck@master
+        uses: Jayrgo/luacheck-action@v1
         with:
-          luacheckrc_url: https://raw.githubusercontent.com/Hoidberg/ClassicEngineV2/master/.luacheckrc
+          # List of files, directories and rockspecs to check.
+          # Default: .
+          files: '.'
+
+          # Path to configuration file.
+          # Default: .luacheckrc
+          config: '.luacheckrc'
+
+          # Arguments passed to luacheck.
+          # Default: -q
+          args: '-q'
