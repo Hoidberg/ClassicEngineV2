@@ -29,14 +29,14 @@ local LENS_FLARE_CONFIGURATION =
 ------------------------------------------------------------------------------------------------------------------------
 --[[
 	The LENSES array is used to control the individual lenses of the effect.
-	
+
 	* Color		- The color of the lense.
 	* Radius	- An arbitrary scaling factor for each lense.
 	* Distance	- A value between 0 and 1 indicating the position of the lense on the screen.
 				  ( A value of 0.5 will always be at the center of the screen )
 				  ( A value of 1.0 will be directly on top of the sun )
 				  ( A value of 0.0 will be on the opposite end of the screen )
-	
+
 --]]
 
 local LENSES =
@@ -123,16 +123,16 @@ else
 	lensFlareNode.Locked = true
 	lensFlareNode.Parent = c
 end
-	
-	------------------------------------------------------------------------------------------------------------------------
+
+	-----------------------------------------------------------------------------------------------------------------------
 	-- Main
-	------------------------------------------------------------------------------------------------------------------------
-	
+	-----------------------------------------------------------------------------------------------------------------------
+
 local function as_Vector2(v3, ...)
-		-- Roblox likes to kill my OCD.
+	-- Roblox likes to kill my OCD.
 	return Vector2.new(v3.X, v3.Y), ...
 end
-	
+
 local function isSunOccluded(sunDir)
 	local origin = c.CFrame.p + (c.CFrame.lookVector * 2)
 	local ray = Ray.new(origin, origin + (sunDir * 10e6))
@@ -154,19 +154,19 @@ local function isSunOccluded(sunDir)
 	end
 	return occluded
 end
-	
+
 local function createLenseBeam(lense, id)
 	local radius = lense.Radius * LENS_FLARE_CONFIGURATION.Scale
 	local a0 = Instance.new("Attachment")
 	a0.Name = id .. "_A0"
 	a0.Parent = lensFlareNode
 	lense.A0 = a0
-	
+
 	local a1 = Instance.new("Attachment")
 	a1.Name = id .. "_A1"
 	a1.Parent = lensFlareNode
 	lense.A1 = a1
-	
+
 	local beam = Instance.new("Beam")
 	beam.Name = id
 	beam.Color = ColorSequence.new(lense.Color)
@@ -182,14 +182,14 @@ local function createLenseBeam(lense, id)
 	lense.Beam = beam
 	return beam
 end
-	
+
 local function updateLensFlare()
 	local sunDir = Lighting:GetSunDirection()
 	local sunWrldSpace = sunDir * 10e6
 	local sunScrnSpace, inView = as_Vector2(c:WorldToViewportPoint(sunWrldSpace))
 	local sunScrnSpaceInv = c.ViewportSize - sunScrnSpace
 	local enabled = (inView and not isSunOccluded(sunDir))
-	
+
 	for i, lense in ipairs(LENSES) do
 		local beam = lense.Beam or createLenseBeam(lense, i)
 		beam.Enabled = enabled
