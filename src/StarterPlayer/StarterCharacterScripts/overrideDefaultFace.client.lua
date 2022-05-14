@@ -1,6 +1,4 @@
-local RunService = game:GetService("RunService")
-
-RunService.RenderStepped:Connect(function()
+while true do
 	-- check if the script is in the players character
 	if script.Parent:IsA("Model") and script.Parent:FindFirstChild("Humanoid") then
 		for _,v in ipairs(script.Parent.Head:GetChildren()) do
@@ -9,4 +7,4 @@ RunService.RenderStepped:Connect(function()
 			end
 		end
 	end
-end)
+end
