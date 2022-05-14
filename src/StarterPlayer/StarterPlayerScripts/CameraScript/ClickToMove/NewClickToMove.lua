@@ -268,7 +268,7 @@ local function createNewPopup(popupType)
 				0
 			),{
 				Size = size
-			}	
+			}
 		)
 		tween1:Play()
 		return tween1
@@ -285,7 +285,7 @@ local function createNewPopup(popupType)
 				0
 			),{
 				Size = ZERO_VECTOR2
-			}	
+			}
 		)
 		tween1:Play()
 		return tween1
@@ -320,7 +320,7 @@ local function createPopupPath(points, numCircles)
 				popups[iter] = nil
 			end
 		end
-	end	
+	end
 
 	local function stopFunction()
 		stopTraversing = true
@@ -341,7 +341,6 @@ local function createPopupPath(points, numCircles)
 				popups[i] = popup
 				local nextPopup = points[i+1]
 				popup:Place(points[i].Position, nextPopup and nextPopup.Position or points[#points].Position)
-				local tween = popup:TweenIn()
 				wait(0.2)
 			end
 		end
@@ -391,7 +390,7 @@ local function Pather(character, endPoint, surfaceNormal)
 	function this:ComputePath()
 		local humanoid = findPlayerHumanoid(Player)
 		local torso = humanoid and humanoid.Torso
-		local success = false
+		local success
 		if torso then
 			if this.PathComputed or this.PathComputing then return end
 			this.PathComputing = true
@@ -432,15 +431,15 @@ local function Pather(character, endPoint, surfaceNormal)
 					if nextAction == Enum.PathWaypointAction.Jump then
 						local currentState = this.humanoid:GetState()
 						if currentState == Enum.HumanoidStateType.FallingDown or
-						   currentState == Enum.HumanoidStateType.Freefall or
-						   currentState == Enum.HumanoidStateType.Jumping then
-						   
-						   this.humanoid.FreeFalling:wait()
+							currentState == Enum.HumanoidStateType.Freefall or
+							currentState == Enum.HumanoidStateType.Jumping then
 
-						   -- Give time to the humanoid's state to change
-						   -- Otherwise, the jump flag in Humanoid
-						   -- will be reset by the state change
-						   wait(0.1)
+							this.humanoid.FreeFalling:wait()
+
+							-- Give time to the humanoid's state to change
+							-- Otherwise, the jump flag in Humanoid
+							-- will be reset by the state change
+							wait(0.1)
 						end
 					end
 				end
@@ -565,11 +564,17 @@ local function CleanupPath()
 end
 
 local function getExtentsSize(Parts)
-	local maxX,maxY,maxZ = -math.huge,-math.huge,-math.huge
-	local minX,minY,minZ = math.huge,math.huge,math.huge
+	local maxX, maxY, maxZ = -math.huge, -math.huge, -math.huge
+	local minX, minY, minZ = math.huge, math.huge, math.huge
 	for i = 1, #Parts do
-		maxX,maxY,maxZ = math_max(maxX, Parts[i].Position.X), math_max(maxY, Parts[i].Position.Y), math_max(maxZ, Parts[i].Position.Z)
-		minX,minY,minZ = math_min(minX, Parts[i].Position.X), math_min(minY, Parts[i].Position.Y), math_min(minZ, Parts[i].Position.Z)
+		maxX, maxY, maxZ =
+			math_max(maxX, Parts[i].Position.X),
+			math_max(maxY, Parts[i].Position.Y),
+			math_max(maxZ, Parts[i].Position.Z)
+		minX, minY, minZ =
+			math_min(minX, Parts[i].Position.X),
+			math_min(minY, Parts[i].Position.Y),
+			math_min(minZ, Parts[i].Position.Z)
 	end
 	return Region3.new(Vector3_new(minX, minY, minZ), Vector3_new(maxX, maxY, maxZ))
 end
