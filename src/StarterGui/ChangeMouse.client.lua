@@ -15,10 +15,10 @@ local function IsFirstPerson()
      return (head.CFrame.p - camera.CFrame.p).Magnitude < 4.5
 end
 
-RunService.RenderStepped:Connect(function()
+while true do
 	if not IsFirstPerson() then
 		mouse.Icon = ICONS.ThirdPersonIcon
 	elseif IsFirstPerson() then
 		mouse.Icon = ICONS.FirstPersonIcon
 	end
-end)
+end
