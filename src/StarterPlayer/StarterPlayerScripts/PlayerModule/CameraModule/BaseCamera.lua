@@ -223,7 +223,7 @@ function BaseCamera:OnCharacterAdded(char)
 	end
 end
 
-function BaseCamera:GetHumanoidRootPart(): BasePart
+function BaseCamera:GetHumanoidRootPart():
 	if not self.humanoidRootPart then
 		if player.Character then
 			local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
