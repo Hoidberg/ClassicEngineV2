@@ -156,7 +156,7 @@ do
 		return nil, nil
 	end
 	Utility.Raycast = Raycast
-	
+
 	local function AveragePoints(positions)
 		local avgPos = ZERO_VECTOR2
 		if #positions > 0 then
@@ -256,7 +256,7 @@ local function createNewPopup(popupType)
 	end
 	local dataStructure = {}
 	dataStructure.Model = newModel
-	
+
 	function dataStructure:TweenIn()
 		local tween1 = tweenService:Create(self.Model,
 			TweenInfo.new(
@@ -273,7 +273,7 @@ local function createNewPopup(popupType)
 		tween1:Play()
 		return tween1
 	end
-	
+
 	function dataStructure:TweenOut()
 		local tween1 = tweenService:Create(self.Model,
 			TweenInfo.new(
@@ -290,7 +290,7 @@ local function createNewPopup(popupType)
 		tween1:Play()
 		return tween1
 	end
-	
+
 	function dataStructure:Place(position, dest)
 		-- place the model at position
 		if not self.Model.Parent then
@@ -299,7 +299,7 @@ local function createNewPopup(popupType)
 			self.Model.CFrame = CFrame.new(position,dest)*CFrame.Angles(math.pi/2,0,0)-Vector3.new(0,-.2,0)
 		end
 	end
-	
+
 	return dataStructure
 end
 
@@ -307,7 +307,7 @@ local function createPopupPath(points, numCircles)
 	-- creates a path with the provided points, using the path and number of circles provided
 	local popups = {}
 	local stopTraversing = false
-	
+
 	local function killPopup(i)
 		-- kill all popups before and at i
 		for iter, v in pairs(popups) do
@@ -321,12 +321,12 @@ local function createPopupPath(points, numCircles)
 			end
 		end
 	end	
-	
+
 	local function stopFunction()
 		stopTraversing = true
 		killPopup(#points)
 	end
-	
+
 	spawn(function()
 		for i = 1, #points do
 			if stopTraversing then
@@ -346,7 +346,7 @@ local function createPopupPath(points, numCircles)
 			end
 		end
 	end)
-	
+
 	return stopFunction, killPopup
 end
 
@@ -359,13 +359,13 @@ local function Pather(character, endPoint, surfaceNormal)
 	this.Finished = Signal.Create()
 	this.PathFailed = Signal.Create()
 	this.PathStarted = Signal.Create()
-	
+
 	this.PathComputing = false
 	this.PathComputed = false
-	
+
 	this.TargetPoint = endPoint
 	this.TargetSurfaceNormal = surfaceNormal
-	
+
 	this.MoveToConn = nil
 	this.CurrentPoint = 0
 
@@ -387,7 +387,7 @@ local function Pather(character, endPoint, surfaceNormal)
 		this.Cancelled = true
 		this:Cleanup()
 	end
-	
+
 	function this:ComputePath()
 		local humanoid = findPlayerHumanoid(Player)
 		local torso = humanoid and humanoid.Torso
@@ -413,9 +413,7 @@ local function Pather(character, endPoint, surfaceNormal)
 	end
 
 	function this:OnPointReached(reached)
-
 		if reached and not this.Cancelled then
-
 			this.CurrentPoint = this.CurrentPoint + 1
 
 			if this.CurrentPoint > #this.pointList then
@@ -453,7 +451,7 @@ local function Pather(character, endPoint, surfaceNormal)
 				end
 
 				local nextWaypoint = this.pointList[this.CurrentPoint]
-				
+
 				if nextWaypoint.Action == Enum.PathWaypointAction.Jump then
 					this.humanoid.Jump = true
 				end
@@ -469,11 +467,11 @@ local function Pather(character, endPoint, surfaceNormal)
 		if CurrentSeatPart then
 			return
 		end
-		
+
 		this.humanoid = findPlayerHumanoid(Player)
 		if this.Started then return end
 		this.Started = true
-		
+
 		if SHOW_PATH then
 			-- choose whichever one Mike likes best
 			this.stopTraverseFunc, this.setPointFunc = createPopupPath(this.pointList, 4)
@@ -490,7 +488,7 @@ local function Pather(character, endPoint, surfaceNormal)
 			end
 		end
 	end
-	
+
 	this:ComputePath()
 	if not this.PathComputed then
 		-- set the end point towards the camera and raycasted towards the ground in case we hit a wall
@@ -503,7 +501,7 @@ local function Pather(character, endPoint, surfaceNormal)
 		-- try again
 		this:ComputePath()
 	end
-	
+
 	return this
 end
 
@@ -592,20 +590,20 @@ local function OnTap(tapPositions, goToPoint)
 	-- Good to remember if this is the latest tap event
 	local camera = workspace.CurrentCamera
 	local character = Player.Character
-	
+
 	if not CheckAlive(character) then return end
-	
+
 	-- This is a path tap position
 	if #tapPositions == 1 or goToPoint then
 		if camera then
 			local unitRay = camera:ScreenPointToRay(tapPositions[1].x, tapPositions[1].y)
 			local ray = Ray.new(unitRay.Origin, unitRay.Direction*400)
-			
+
 			-- inivisicam stuff
 			local initIgnore = getIgnoreList()
 			local invisicamParts = InvisicamModule:GetObscuredParts()
 			local ignoreTab = {}
-			
+
 			-- add to the ignore list
 			for i, v in pairs(invisicamParts) do
 				ignoreTab[#ignoreTab+1] = i
@@ -626,7 +624,7 @@ local function OnTap(tapPositions, goToPoint)
 			end
 			if hitChar and hitHumanoid and hitHumanoid.Torso and (hitHumanoid.Torso.CFrame.p - torso.CFrame.p).magnitude < 7 then
 				CleanupPath()
-				
+
 				if myHumanoid then
 					myHumanoid:MoveTo(hitPt)
 				end
@@ -640,19 +638,19 @@ local function OnTap(tapPositions, goToPoint)
 				local thisPather = Pather(character, hitPt, hitNormal)
 				if thisPather:IsValidPath() then
 					FailCount = 0
-					
+
 					thisPather:Start()
 					if BindableEvent_OnFailStateChanged then
 						BindableEvent_OnFailStateChanged:Fire(false)
 					end
 					CleanupPath()
-					
+
 					local destinationPopup = createNewPopup("DestinationPopup")	
 					destinationPopup:Place(hitPt, Vector3_new(0,hitPt.y,0))
 					local failurePopup = createNewPopup("FailurePopup")
 					local currentTween = destinationPopup:TweenIn()
-					
-					
+
+
 					ExistingPather = thisPather
 					ExistingIndicator = destinationPopup
 
@@ -677,7 +675,6 @@ local function OnTap(tapPositions, goToPoint)
 								LastFired = tick()
 							end
 							if humanoid then
-	
 								humanoid:MoveTo(hitPt)
 							end
 						end
@@ -707,8 +704,8 @@ local function OnTap(tapPositions, goToPoint)
 								myHumanoid:MoveTo(hitPt)
 								foundDirectPath = true
 							end
-						end						
-						
+						end
+
 						spawn(function()
 							local directPopup = createNewPopup(foundDirectPath and "DirectWalkPopup" or "FailurePopup")
 							directPopup:Place(hitPt, Vector3_new(0,hitPt.y,0))
@@ -726,10 +723,10 @@ local function OnTap(tapPositions, goToPoint)
 				ExistingIndicator = destinationPopup
 				destinationPopup:Place(hitPt, Vector3_new(0,hitPt.y,0))
 				destinationPopup:TweenIn()
-				
+
 				DrivingTo = hitPt
 				local ConnectedParts = CurrentSeatPart:GetConnectedParts(true)
-				
+
 				while wait() do
 					if CurrentSeatPart and ExistingIndicator == destinationPopup then
 						local ExtentsSize = getExtentsSize(ConnectedParts)
@@ -835,11 +832,11 @@ local function CreateClickToMoveModule()
 	local function IsFinite(num)
 		return num == num and num ~= 1/0 and num ~= -1/0
 	end
-	
+
 	local function findAngleBetweenXZVectors(vec2, vec1)
 		return math_atan2(vec1.X*vec2.Z-vec1.Z*vec2.X, vec1.X*vec2.X + vec1.Z*vec2.Z)
 	end
-	
+
 	-- Setup the camera
 	CameraModule = OrbitalCamModule()
 
@@ -933,7 +930,7 @@ local function CreateClickToMoveModule()
 				OnTap(touchPositions)
 			end
 		end)
-		
+
 		local function computeThrottle(dist)
 			if dist > .2 then
 				return 0.5+(dist^2)/2
@@ -945,20 +942,20 @@ local function CreateClickToMoveModule()
 		local function getThrottleAndSteer(object, point)
 			local throttle, steer = 0, 0
 			local oCF = object.CFrame
-			
+
 			local relativePosition = oCF:pointToObjectSpace(point)
 			local relativeZDirection = -relativePosition.z
 			local relativeDistance = relativePosition.magnitude
-			
+
 			-- throttle quadratically increases from 0-1 as distance from the selected point goes from 0-50, after 50, throttle is 1.
 			-- this allows shorter distance travel to have more fine-tuned control.
 			throttle = computeThrottle(math_min(1,relativeDistance/50))*math.sign(relativeZDirection)
-			
+
 			local steerAngle = -math_atan2(-relativePosition.x, -relativePosition.z)
 			steer = steerAngle/(math_pi/4)
 			return throttle, steer
 		end
-		
+
 		local function Update()
 			if CameraModule then
 				CameraModule.UserPanningTheCamera = true
@@ -986,9 +983,9 @@ local function CreateClickToMoveModule()
 				end
 			end
 		end
-		
+
 		RunService:BindToRenderStep("ClickToMoveRenderUpdate",Enum.RenderPriority.Camera.Value - 1,Update)
-	
+
 		local function onSeated(child, active, currentSeatPart)
 			if active then
 				if TouchJump and UIS.TouchEnabled then
