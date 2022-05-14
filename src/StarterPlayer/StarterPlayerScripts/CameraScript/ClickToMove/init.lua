@@ -1216,11 +1216,11 @@ local function CreateClickToMoveModule()
 	local function IsFinite(num)
 		return num == num and num ~= 1/0 and num ~= -1/0
 	end
-	
+
 	local function findAngleBetweenXZVectors(vec2, vec1)
 		return math_atan2(vec1.X*vec2.Z-vec1.Z*vec2.X, vec1.X*vec2.X + vec1.Z*vec2.Z)
 	end
-	
+
 	-- Setup the camera
 	CameraModule = ClassicCameraModule()
 
@@ -1257,7 +1257,8 @@ local function CreateClickToMoveModule()
 
 			local c0, c1 = CFrame_new(ZERO_VECTOR3, self:GetCameraLook()), desiredCFrame - desiredCFrame.p
 			local theta = GetThetaBetweenCFrames(c0, c1)
-			theta = clamp(0, math_pi, theta)
+			theta = 
+			(0, math_pi, theta)
 			local duration = 0.65 * SCurve(theta - math_pi/4) + 0.15
 			if speed then
 				duration = theta / speed
@@ -1267,13 +1268,13 @@ local function CreateClickToMoveModule()
 
 			self.UpdateTweenFunction = function()
 				local currTime = tick() - start
-				local alpha = clamp(0, 1, easeOutSine(currTime, 0, 1, duration))
+				local alpha = math.clamp(0, 1, easeOutSine(currTime, 0, 1, duration))
 				local newCFrame = lerp(c0, c1, alpha)
 				local y = findAngleBetweenXZVectors(newCFrame.lookVector, self:GetCameraLook())
 				if IsFinite(y) and math_abs(y) > 0.0001 then
 					self.RotateInput = self.RotateInput + Vector2_new(y, 0)
 				end
-				return (currTime >= finish or alpha >= 1)
+				return currTime >= finish or alpha >= 1
 			end
 		end
 	end
@@ -1314,7 +1315,6 @@ local function CreateClickToMoveModule()
 		InputBeganConn = UIS.InputBegan:connect(function(input, processed)
 			if input.UserInputType == Enum.UserInputType.Touch then
 				OnTouchBegan(input, processed)
-
 
 				-- Give back controls when they tap both sticks
 				local wasInBottomLeft = IsInBottomLeft(input.Position)
@@ -1383,7 +1383,7 @@ local function CreateClickToMoveModule()
 			end
 			AutoJumperInstance = AutoJumper()
 		end
-		
+
 		local function getThrottleAndSteer(object, point)
 			local lookVector = (point - object.Position)
 			lookVector = Vector3_new(lookVector.X, 0, lookVector.Z).unit
@@ -1429,7 +1429,7 @@ local function CreateClickToMoveModule()
 			end
 			return throttle, steer
 		end
-		
+
 		local function Update()
 			if CameraModule then
 				if CameraModule.UserPanningTheCamera then
