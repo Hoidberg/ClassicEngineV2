@@ -37,12 +37,12 @@ stds.roblox = {
                 Disabled = read_write;
                 LinkedSource = read_write;
                 CurrentEditor = read_write_class;
-                IsDifferentFromFileSystem = read_write;
                 Archivable = read_write;
                 ClassName = read_only;
                 Name = read_write;
                 Parent = read_write_class;
                 RobloxLocked = read_write;
+                SourceAssetId = read_write;
                 ClearAllChildren = read_write;
                 Clone = read_write;
                 Destroy = read_write;
@@ -52,6 +52,8 @@ stds.roblox = {
                 FindFirstChild = read_write;
                 FindFirstChildOfClass = read_write;
                 FindFirstChildWhichIsA = read_write;
+                FindFirstDescendant = read_write;
+                GetActor = read_write;
                 GetAttribute = read_write;
                 GetAttributeChangedSignal = read_write;
                 GetAttributes = read_write;
@@ -72,6 +74,7 @@ stds.roblox = {
                 ChildRemoved = read_write;
                 DescendantAdded = read_write;
                 DescendantRemoving = read_write;
+                Destroying = read_write;
             }
         },
         game = {
@@ -96,11 +99,9 @@ stds.roblox = {
                 GetFastFlag = read_write;
                 GetFastInt = read_write;
                 GetFastString = read_write;
-                GetJobIntervalPeakFraction = read_write;
-                GetJobTimePeakFraction = read_write;
-                GetJobsExtendedStats = read_write;
                 GetJobsInfo = read_write;
                 GetObjects = read_write;
+                GetObjectsAllOrNone = read_write;
                 GetObjectsList = read_write;
                 IsLoaded = read_write;
                 Load = read_write;
@@ -120,6 +121,7 @@ stds.roblox = {
                 GraphicsQualityChangeRequest = read_write;
                 Loaded = read_write;
                 ScreenshotReady = read_write;
+                ScreenshotSavedToAlbum = read_write;
                 FindService = read_write;
                 GetService = read_write;
                 Close = read_write;
@@ -131,6 +133,7 @@ stds.roblox = {
                 Name = read_write;
                 Parent = read_write_class;
                 RobloxLocked = read_write;
+                SourceAssetId = read_write;
                 ClearAllChildren = read_write;
                 Clone = read_write;
                 Destroy = read_write;
@@ -140,6 +143,8 @@ stds.roblox = {
                 FindFirstChild = read_write;
                 FindFirstChildOfClass = read_write;
                 FindFirstChildWhichIsA = read_write;
+                FindFirstDescendant = read_write;
+                GetActor = read_write;
                 GetAttribute = read_write;
                 GetAttributeChangedSignal = read_write;
                 GetAttributes = read_write;
@@ -160,23 +165,35 @@ stds.roblox = {
                 ChildRemoved = read_write;
                 DescendantAdded = read_write;
                 DescendantRemoving = read_write;
+                Destroying = read_write;
             }
         },
         workspace = {
             other_fields = true,
             fields = {
                 AllowThirdPartySales = read_write;
+                AnimationWeightedBlendFix = read_write;
+                ClientAnimatorThrottling = read_write;
                 CurrentCamera = read_write_class;
                 DistributedGameTime = read_write;
                 FallenPartsDestroyHeight = read_write;
-                FilteringEnabled = read_write;
+                GlobalWind = read_write;
                 Gravity = read_write;
+                HumanoidOnlySetCollisionsOnStateChange = read_write;
+                InterpolationThrottling = read_write;
+                MeshPartHeadsAndAccessories = read_write;
+                PhysicsSimulationRate = read_write;
+                PhysicsSteppingMethod = read_write;
+                ReplicateInstanceDestroySetting = read_write;
+                Retargeting = read_write;
+                SignalBehavior = read_write;
+                StreamOutBehavior = read_write;
                 StreamingEnabled = read_write;
                 StreamingMinRadius = read_write;
                 StreamingPauseMode = read_write;
                 StreamingTargetRadius = read_write;
-                TemporaryLegacyPhysicsSolverOverride = read_write;
                 Terrain = read_only;
+                TouchesUseCollisionGroups = read_write;
                 BreakJoints = read_write;
                 CalculateJumpDistance = read_write;
                 CalculateJumpHeight = read_write;
@@ -185,26 +202,27 @@ stds.roblox = {
                 GetNumAwakeParts = read_write;
                 GetPhysicsThrottling = read_write;
                 GetRealPhysicsFPS = read_write;
+                GetServerTimeNow = read_write;
                 JoinToOutsiders = read_write;
                 MakeJoints = read_write;
                 PGSIsEnabled = read_write;
+                SetMeshPartHeadsAndAccessories = read_write;
                 SetPhysicsThrottleEnabled = read_write;
                 UnjoinFromOutsiders = read_write;
                 ZoomToExtents = read_write;
                 ArePartsTouchingOthers = read_write;
                 BulkMoveTo = read_write;
-                FindPartOnRay = read_write;
-                FindPartOnRayWithIgnoreList = read_write;
-                FindPartOnRayWithWhitelist = read_write;
-                FindPartsInRegion3 = read_write;
-                FindPartsInRegion3WithIgnoreList = read_write;
-                FindPartsInRegion3WithWhiteList = read_write;
+                GetPartBoundsInBox = read_write;
+                GetPartBoundsInRadius = read_write;
+                GetPartsInPart = read_write;
                 IKMoveTo = read_write;
-                IsRegion3Empty = read_write;
-                IsRegion3EmptyWithIgnoreList = read_write;
                 Raycast = read_write;
                 SetInsertPoint = read_write;
+                LevelOfDetail = read_write;
                 PrimaryPart = read_write_class;
+                ["World Pivot Orientation"] = read_write;
+                ["World Pivot Position"] = read_write;
+                WorldPivot = read_write;
                 BreakJoints = read_write;
                 GetBoundingBox = read_write;
                 GetExtentsSize = read_write;
@@ -213,11 +231,18 @@ stds.roblox = {
                 MoveTo = read_write;
                 SetPrimaryPartCFrame = read_write;
                 TranslateBy = read_write;
+                ["Origin Orientation"] = read_write;
+                ["Origin Position"] = read_write;
+                ["Pivot Offset Orientation"] = read_write;
+                ["Pivot Offset Position"] = read_write;
+                GetPivot = read_write;
+                PivotTo = read_write;
                 Archivable = read_write;
                 ClassName = read_only;
                 Name = read_write;
                 Parent = read_write_class;
                 RobloxLocked = read_write;
+                SourceAssetId = read_write;
                 ClearAllChildren = read_write;
                 Clone = read_write;
                 Destroy = read_write;
@@ -227,6 +252,8 @@ stds.roblox = {
                 FindFirstChild = read_write;
                 FindFirstChildOfClass = read_write;
                 FindFirstChildWhichIsA = read_write;
+                FindFirstDescendant = read_write;
+                GetActor = read_write;
                 GetAttribute = read_write;
                 GetAttributeChangedSignal = read_write;
                 GetAttributes = read_write;
@@ -247,6 +274,7 @@ stds.roblox = {
                 ChildRemoved = read_write;
                 DescendantAdded = read_write;
                 DescendantRemoving = read_write;
+                Destroying = read_write;
             }
         },
     },
@@ -265,14 +293,14 @@ stds.roblox = {
 
         -- Libraries
         math = def_fields({"abs", "acos", "asin", "atan", "atan2", "ceil", "clamp", "cos", "cosh",
-            "deg", "exp", "floor", "fmod", "frexp", "ldexp", "log", "log10", "max", "min", "modf",
-            "noise", "pow", "rad", "random", "randomseed", "sign", "sin", "sinh", "sqrt", "tan",
-            "tanh", "huge", "pi"}),
+            "deg", "exp", "floor", "fmod", "frexp", "huge", "ldexp", "log", "log10", "max", "min",
+            "modf", "noise", "pi", "pow", "rad", "random", "randomseed", "round", "sign", "sin",
+            "sinh", "sqrt", "tan", "tanh"}),
 
         table = def_fields({"concat", "foreach", "foreachi", "getn", "insert", "remove", "sort",
             "pack", "unpack", "move", "create", "find"}),
 
-        os = def_fields({"time", "difftime", "date"}),
+        os = def_fields({"time", "difftime", "date", "clock"}),
 
         debug = def_fields({"traceback", "profilebegin", "profileend"}),
 
@@ -284,6 +312,8 @@ stds.roblox = {
 
         string = def_fields({"byte", "char", "find", "format", "gmatch", "gsub", "len", "lower",
             "match", "rep", "reverse", "split"}),
+
+        task = def_fields({"spawn", "defer", "delay", "wait"}),
 
         -- Types
         Axes = def_fields({"new"}),
@@ -313,6 +343,8 @@ stds.roblox = {
         NumberSequence = def_fields({"new"}),
 
         NumberSequenceKeypoint = def_fields({"new"}),
+
+        OverlapParams = def_fields({"new"}),
 
         PhysicalProperties = def_fields({"new"}),
 
@@ -348,18 +380,34 @@ stds.roblox = {
             fields = {
                 ABTestLoadingStatus = def_enum({"None", "Pending", "Initialized", "Error",
                     "TimedOut", "ShutOff"}),
+                AccessoryType = def_enum({"Unknown", "Hat", "Hair", "Face", "Neck", "Shoulder",
+                    "Front", "Back", "Waist", "TShirt", "Shirt", "Pants", "Jacket", "Sweater",
+                    "Shorts", "LeftShoe", "RightShoe", "DressSkirt", "Eyebrow", "Eyelash"}),
                 ActionType = def_enum({"Nothing", "Pause", "Lose", "Draw", "Win"}),
                 ActuatorRelativeTo = def_enum({"Attachment0", "Attachment1", "World"}),
                 ActuatorType = def_enum({"None", "Motor", "Servo"}),
+                AdornCullingMode = def_enum({"Automatic", "Never"}),
                 AlignType = def_enum({"Parallel", "Perpendicular"}),
                 AlphaMode = def_enum({"Overlay", "Transparency"}),
-                AnimationPriority = def_enum({"Idle", "Movement", "Action", "Core"}),
+                AnalyticsEconomyAction = def_enum({"Default", "Acquire", "Spend"}),
+                AnalyticsLogLevel = def_enum({"Trace", "Debug", "Information", "Warning", "Error",
+                    "Fatal"}),
+                AnalyticsProgressionStatus = def_enum({"Default", "Begin", "Complete", "Abandon",
+                    "Fail"}),
+                AnimationPriority = def_enum({"Idle", "Movement", "Action", "Action2", "Action3",
+                    "Action4", "Core"}),
+                AnimatorRetargetingMode = def_enum({"Default", "Disabled", "Enabled"}),
                 AppShellActionType = def_enum({"None", "OpenApp", "TapChatTab",
                     "TapConversationEntry", "TapAvatarTab", "ReadConversation", "TapGamePageTab",
                     "TapHomePageTab", "GamePageLoaded", "HomePageLoaded", "AvatarEditorPageLoaded"}),
+                AppShellFeature = def_enum({"None", "Chat", "AvatarEditor", "GamePage", "HomePage",
+                    "More", "Landing"}),
+                AppUpdateStatus = def_enum({"Unknown", "NotSupported", "Failed", "NotAvailable",
+                    "Available"}),
+                ApplyStrokeMode = def_enum({"Contextual", "Border"}),
                 AspectType = def_enum({"FitWithinMaxSize", "ScaleWithParentSize"}),
                 AssetFetchStatus = def_enum({"Success", "Failure"}),
-                AssetType = def_enum({"Image", "TeeShirt", "Audio", "Mesh", "Lua", "Hat", "Place",
+                AssetType = def_enum({"Image", "TShirt", "Audio", "Mesh", "Lua", "Hat", "Place",
                     "Model", "Shirt", "Pants", "Decal", "Head", "Face", "Gear", "Badge",
                     "Animation", "Torso", "RightArm", "LeftArm", "LeftLeg", "RightLeg", "Package",
                     "GamePass", "Plugin", "MeshPart", "HairAccessory", "FaceAccessory",
@@ -367,10 +415,25 @@ stds.roblox = {
                     "WaistAccessory", "ClimbAnimation", "DeathAnimation", "FallAnimation",
                     "IdleAnimation", "JumpAnimation", "RunAnimation", "SwimAnimation",
                     "WalkAnimation", "PoseAnimation", "EarAccessory", "EyeAccessory",
-                    "EmoteAnimation", "Video"}),
+                    "EmoteAnimation", "Video", "TShirtAccessory", "ShirtAccessory",
+                    "PantsAccessory", "JacketAccessory", "SweaterAccessory", "ShortsAccessory",
+                    "LeftShoeAccessory", "RightShoeAccessory", "DressSkirtAccessory",
+                    "EyebrowAccessory", "EyelashAccessory"}),
+                AssetTypeVerification = def_enum({"Default", "ClientOnly", "Always"}),
                 AutoIndentRule = def_enum({"Off", "Absolute", "Relative"}),
+                AutomaticSize = def_enum({"None", "X", "Y", "XY"}),
+                AvatarAssetType = def_enum({"TShirt", "Hat", "HairAccessory", "FaceAccessory",
+                    "NeckAccessory", "ShoulderAccessory", "FrontAccessory", "BackAccessory",
+                    "WaistAccessory", "Shirt", "Pants", "Gear", "Head", "Face", "Torso",
+                    "RightArm", "LeftArm", "LeftLeg", "RightLeg", "ClimbAnimation",
+                    "FallAnimation", "IdleAnimation", "JumpAnimation", "RunAnimation",
+                    "SwimAnimation", "WalkAnimation", "EmoteAnimation", "TShirtAccessory",
+                    "ShirtAccessory", "PantsAccessory", "JacketAccessory", "SweaterAccessory",
+                    "ShortsAccessory", "LeftShoeAccessory", "RightShoeAccessory",
+                    "DressSkirtAccessory", "EyebrowAccessory", "EyelashAccessory"}),
                 AvatarContextMenuOption = def_enum({"Friend", "Chat", "Emote", "InspectMenu"}),
-                AvatarJointPositionType = def_enum({"Fixed", "ArtistIntent"}),
+                AvatarItemType = def_enum({"Asset", "Bundle"}),
+                AvatarPromptResult = def_enum({"Success", "PermissionDenied", "Failed"}),
                 Axis = def_enum({"X", "Y", "Z"}),
                 BinType = def_enum({"Script", "GameTool", "Grab", "Clone", "Hammer"}),
                 BodyPart = def_enum({"Head", "Torso", "LeftArm", "RightArm", "LeftLeg", "RightLeg"}),
@@ -380,14 +443,21 @@ stds.roblox = {
                     "RightUpperArm", "RootPart", "Unknown"}),
                 BorderMode = def_enum({"Outline", "Middle", "Inset"}),
                 BreakReason = def_enum({"Other", "Error", "UserBreakpoint", "SpecialBreakpoint"}),
-                BulkMoveMode = def_enum({"FireAllEvents", "FireCFrameChanged", "FireNoEvents"}),
+                BreakpointRemoveReason = def_enum({"Requested", "ScriptChanged", "ScriptRemoved"}),
+                BulkMoveMode = def_enum({"FireAllEvents", "FireCFrameChanged"}),
+                BundleType = def_enum({"BodyParts", "Animations", "Shoes"}),
                 Button = def_enum({"Jump", "Dismount"}),
                 ButtonStyle = def_enum({"Custom", "RobloxButtonDefault", "RobloxButton",
                     "RobloxRoundButton", "RobloxRoundDefaultButton", "RobloxRoundDropdownButton"}),
+                CageType = def_enum({"Inner", "Outer"}),
                 CameraMode = def_enum({"Classic", "LockFirstPerson"}),
                 CameraPanMode = def_enum({"Classic", "EdgeBump"}),
                 CameraType = def_enum({"Fixed", "Watch", "Attach", "Track", "Follow", "Custom",
                     "Scriptable", "Orbital"}),
+                CatalogCategoryFilter = def_enum({"None", "Featured", "Collectibles",
+                    "CommunityCreations", "Premium", "Recommended"}),
+                CatalogSortType = def_enum({"Relevance", "PriceHighToLow", "PriceLowToHigh",
+                    "RecentlyUpdated", "MostFavorited"}),
                 CellBlock = def_enum({"Solid", "VerticalWedge", "CornerWedge",
                     "InverseCornerWedge", "HorizontalWedge"}),
                 CellMaterial = def_enum({"Empty", "Grass", "Sand", "Brick", "Granite", "Asphalt",
@@ -402,8 +472,11 @@ stds.roblox = {
                 ChatMode = def_enum({"Menu", "TextAndMenu"}),
                 ChatPrivacyMode = def_enum({"AllUsers", "NoOne", "Friends"}),
                 ChatStyle = def_enum({"Classic", "Bubble", "ClassicAndBubble"}),
+                ChatVersion = def_enum({"LegacyChatService", "TextChatService"}),
+                ClientAnimatorThrottlingMode = def_enum({"Default", "Disabled", "Enabled"}),
                 CollisionFidelity = def_enum({"Default", "Hull", "Box",
                     "PreciseConvexDecomposition"}),
+                CommandPermission = def_enum({"Plugin", "LocalUser"}),
                 ComputerCameraMovementMode = def_enum({"Default", "Follow", "Classic", "Orbital",
                     "CameraToggle"}),
                 ComputerMovementMode = def_enum({"Default", "KeyboardMouse", "ClickToMove"}),
@@ -418,10 +491,11 @@ stds.roblox = {
                     "DisconnectDevMaintenance", "DisconnectRobloxMaintenance", "DisconnectRejoin",
                     "DisconnectConnectionLost", "DisconnectIdle", "DisconnectRaknetErrors",
                     "DisconnectWrongVersion", "DisconnectBySecurityPolicy", "DisconnectBlockedIP",
-                    "PlacelaunchErrors", "PlacelaunchDisabled", "PlacelaunchError",
-                    "PlacelaunchGameEnded", "PlacelaunchGameFull", "PlacelaunchUserLeft",
-                    "PlacelaunchRestricted", "PlacelaunchUnauthorized", "PlacelaunchFlooded",
-                    "PlacelaunchHashExpired", "PlacelaunchHashException",
+                    "DisconnectClientFailure", "DisconnectClientRequest", "DisconnectOutOfMemory",
+                    "DisconnectModeratedGame", "PlacelaunchErrors", "PlacelaunchDisabled",
+                    "PlacelaunchError", "PlacelaunchGameEnded", "PlacelaunchGameFull",
+                    "PlacelaunchUserLeft", "PlacelaunchRestricted", "PlacelaunchUnauthorized",
+                    "PlacelaunchFlooded", "PlacelaunchHashExpired", "PlacelaunchHashException",
                     "PlacelaunchPartyCannotFit", "PlacelaunchHttpError",
                     "PlacelaunchCustomMessage", "PlacelaunchOtherError", "TeleportErrors",
                     "TeleportFailure", "TeleportGameNotFound", "TeleportGameEnded",
@@ -433,11 +507,22 @@ stds.roblox = {
                 ControlMode = def_enum({"MouseLockSwitch", "Classic"}),
                 CoreGuiType = def_enum({"PlayerList", "Health", "Backpack", "Chat", "All",
                     "EmotesMenu"}),
+                CreateOutfitFailure = def_enum({"InvalidName", "OutfitLimitReached", "Other"}),
                 CreatorType = def_enum({"User", "Group"}),
                 CurrencyType = def_enum({"Default", "Robux", "Tix"}),
                 CustomCameraMode = def_enum({"Default", "Follow", "Classic"}),
                 DataStoreRequestType = def_enum({"GetAsync", "SetIncrementAsync", "UpdateAsync",
                     "GetSortedAsync", "SetIncrementSortedAsync", "OnUpdate"}),
+                DebuggerEndReason = def_enum({"ClientRequest", "Timeout", "InvalidHost",
+                    "Disconnected", "ServerShutdown", "ServerProtocolMismatch",
+                    "ConfigurationFailed", "RpcError"}),
+                DebuggerExceptionBreakMode = def_enum({"Never", "Unhandled", "Always"}),
+                DebuggerFrameType = def_enum({"C", "Lua"}),
+                DebuggerPauseReason = def_enum({"Unknown", "Requested", "Breakpoint", "Exception",
+                    "SingleStep", "Entrypoint"}),
+                DebuggerStatus = def_enum({"Success", "Timeout", "ConnectionLost",
+                    "InvalidResponse", "InternalError", "InvalidState", "RpcError",
+                    "InvalidArgument", "ConnectionClosed"}),
                 DevCameraOcclusionMode = def_enum({"Zoom", "Invisicam"}),
                 DevComputerCameraMovementMode = def_enum({"UserChoice", "Classic", "Follow",
                     "Orbital", "CameraToggle"}),
@@ -452,7 +537,7 @@ stds.roblox = {
                     "GraphicsMeshParts", "GraphicsParticles", "GraphicsParts",
                     "GraphicsSpatialHash", "GraphicsTerrain", "GraphicsTexture",
                     "GraphicsTextureCharacter", "Sounds", "StreamingSounds", "TerrainVoxels",
-                    "Gui", "Animation", "Navigation"}),
+                    "Gui", "Animation", "Navigation", "GeometryCSG"}),
                 DeviceType = def_enum({"Unknown", "Desktop", "Tablet", "Phone"}),
                 DialogBehaviorType = def_enum({"SinglePlayer", "MultiplePlayers"}),
                 DialogPurpose = def_enum({"Quest", "Help", "Shop"}),
@@ -460,6 +545,8 @@ stds.roblox = {
                 DominantAxis = def_enum({"Width", "Height"}),
                 DraftStatusCode = def_enum({"OK", "DraftOutdated", "ScriptRemoved",
                     "DraftCommitted"}),
+                DraggerCoordinateSpace = def_enum({"Object", "World"}),
+                DraggerMovementMode = def_enum({"Geometric", "Physical"}),
                 EasingDirection = def_enum({"In", "Out", "InOut"}),
                 EasingStyle = def_enum({"Linear", "Sine", "Back", "Quad", "Quart", "Quint",
                     "Bounce", "Elastic", "Exponential", "Circular", "Cubic"}),
@@ -467,15 +554,24 @@ stds.roblox = {
                 EnviromentalPhysicsThrottle = def_enum({"DefaultAuto", "Disabled", "Always",
                     "Skip2", "Skip4", "Skip8", "Skip16"}),
                 ExplosionType = def_enum({"NoCraters", "Craters"}),
+                FieldOfViewMode = def_enum({"Vertical", "Diagonal", "MaxAxis"}),
                 FillDirection = def_enum({"Horizontal", "Vertical"}),
                 FilterResult = def_enum({"Rejected", "Accepted"}),
                 Font = def_enum({"Legacy", "Arial", "ArialBold", "SourceSans", "SourceSansBold",
                     "SourceSansSemibold", "SourceSansLight", "SourceSansItalic", "Bodoni",
                     "Garamond", "Cartoon", "Code", "Highway", "SciFi", "Arcade", "Fantasy",
-                    "Antique", "Gotham", "GothamSemibold", "GothamBold", "GothamBlack"}),
+                    "Antique", "Gotham", "GothamSemibold", "GothamBold", "GothamBlack", "AmaticSC",
+                    "Bangers", "Creepster", "DenkOne", "Fondamento", "FredokaOne", "GrenzeGotisch",
+                    "IndieFlower", "JosefinSans", "Jura", "Kalam", "LuckiestGuy", "Merriweather",
+                    "Michroma", "Nunito", "Oswald", "PatrickHand", "PermanentMarker", "Roboto",
+                    "RobotoCondensed", "RobotoMono", "Sarpanch", "SpecialElite", "TitilliumWeb",
+                    "Ubuntu", "Unknown"}),
                 FontSize = def_enum({"Size8", "Size9", "Size10", "Size11", "Size12", "Size14",
                     "Size18", "Size24", "Size36", "Size48", "Size28", "Size32", "Size42", "Size60",
                     "Size96"}),
+                FontStyle = def_enum({"Normal", "Italic"}),
+                FontWeight = def_enum({"Thin", "ExtraLight", "Light", "Regular", "Medium",
+                    "SemiBold", "Bold", "ExtraBold", "Heavy"}),
                 FormFactor = def_enum({"Symmetric", "Brick", "Plate", "Custom"}),
                 FrameStyle = def_enum({"Custom", "ChatBlue", "RobloxSquare", "RobloxRound",
                     "ChatGreen", "ChatRed", "DropShadow"}),
@@ -492,9 +588,10 @@ stds.roblox = {
                 Genre = def_enum({"All", "TownAndCity", "Fantasy", "SciFi", "Ninja", "Scary",
                     "Pirate", "Adventure", "Sports", "Funny", "WildWest", "War", "SkatePark",
                     "Tutorial"}),
-                GraphicsMode = def_enum({"Automatic", "Direct3D9", "Direct3D11", "OpenGL", "Metal",
-                    "Vulkan", "NoGraphics"}),
+                GraphicsMode = def_enum({"Automatic", "Direct3D11", "OpenGL", "Metal", "Vulkan",
+                    "NoGraphics"}),
                 HandlesStyle = def_enum({"Resize", "Movement"}),
+                HighlightDepthMode = def_enum({"AlwaysOnTop", "Occluded"}),
                 HorizontalAlignment = def_enum({"Center", "Left", "Right"}),
                 HoverAnimateSpeed = def_enum({"VerySlow", "Slow", "Medium", "Fast", "VeryFast"}),
                 HttpCachePolicy = def_enum({"None", "Full", "DataOnly", "Default",
@@ -510,6 +607,8 @@ stds.roblox = {
                 HumanoidDisplayDistanceType = def_enum({"Viewer", "Subject", "None"}),
                 HumanoidHealthDisplayType = def_enum({"DisplayWhenDamaged", "AlwaysOn",
                     "AlwaysOff"}),
+                HumanoidOnlySetCollisionsOnStateChange = def_enum({"Default", "Disabled",
+                    "Enabled"}),
                 HumanoidRigType = def_enum({"R6", "R15"}),
                 HumanoidStateType = def_enum({"FallingDown", "Running", "RunningNoPhysics",
                     "Climbing", "StrafingNoPhysics", "Ragdoll", "GettingUp", "Jumping", "Landed",
@@ -517,11 +616,13 @@ stds.roblox = {
                     "Physics", "None"}),
                 IKCollisionsMode = def_enum({"NoCollisions", "OtherMechanismsAnchored",
                     "IncludeContactedMechanisms"}),
+                IXPLoadingStatus = def_enum({"None", "Pending", "Initialized", "ShutOff",
+                    "ErrorTimedOut", "ErrorConnection", "ErrorJsonParse", "ErrorInvalidUser"}),
                 InOut = def_enum({"Edge", "Inset", "Center"}),
                 InfoType = def_enum({"Asset", "Product", "GamePass", "Subscription", "Bundle"}),
                 InitialDockState = def_enum({"Top", "Bottom", "Left", "Right", "Float"}),
-                InlineAlignment = def_enum({"Bottom", "Center", "Top"}),
                 InputType = def_enum({"NoInput", "Constant", "Sin"}),
+                InterpolationThrottlingMode = def_enum({"Default", "Disabled", "Enabled"}),
                 JointCreationMode = def_enum({"All", "Surface", "None"}),
                 KeyCode = def_enum({"Unknown", "Backspace", "Tab", "Clear", "Return", "Pause",
                     "Escape", "Space", "QuotedDouble", "Hash", "Dollar", "Percent", "Ampersand",
@@ -558,44 +659,75 @@ stds.roblox = {
                     "ButtonB", "ButtonR1", "ButtonL1", "ButtonR2", "ButtonL2", "ButtonR3",
                     "ButtonL3", "ButtonStart", "ButtonSelect", "DPadLeft", "DPadRight", "DPadUp",
                     "DPadDown", "Thumbstick1", "Thumbstick2"}),
+                KeyInterpolationMode = def_enum({"Constant", "Linear", "Cubic"}),
                 KeywordFilterType = def_enum({"Include", "Exclude"}),
+                LSPMethodType = def_enum({"Initialize", "Initialized", "CancelRequest",
+                    "TextDocument_didOpen", "TextDocument_didChange", "TextDocument_didClose",
+                    "TextDocument_foldingRange", "TextDocument_onTypeFormatting",
+                    "TextDocument_formatting", "TextDocument_rangeFormatting",
+                    "TextDocument_hover", "TextDocument_signatureHelp",
+                    "Workspace_DidChangeConfiguration", "ShutdownRequest", "Completion",
+                    "Declaration", "DocumentSymbols", "TextDocument_publishDiagnostics",
+                    "Window_showMessage", "Window_showMessageRequest",
+                    "Roblox_registerSyntaxCategories", "Roblox_signalQuiescence",
+                    "Roblox_syntaxHighlight", "Roblox_suggestExtraSelections",
+                    "Roblox_findExecutablePosition", "Roblox_findColor3"}),
                 Language = def_enum({"Default"}),
-                LanguagePreference = def_enum({"SystemDefault", "English", "SimplifiedChinese",
-                    "Korean"}),
                 LeftRight = def_enum({"Left", "Center", "Right"}),
                 LevelOfDetailSetting = def_enum({"High", "Medium", "Low"}),
                 Limb = def_enum({"Head", "Torso", "LeftArm", "RightArm", "LeftLeg", "RightLeg",
                     "Unknown"}),
+                LineJoinMode = def_enum({"Round", "Bevel", "Miter"}),
                 ListDisplayMode = def_enum({"Horizontal", "Vertical"}),
                 ListenerType = def_enum({"Camera", "CFrame", "ObjectPosition", "ObjectCFrame"}),
+                LoadCharacterLayeredClothing = def_enum({"Default", "Disabled", "Enabled"}),
                 Material = def_enum({"Plastic", "Wood", "Slate", "Concrete", "CorrodedMetal",
                     "DiamondPlate", "Foil", "Grass", "Ice", "Marble", "Granite", "Brick", "Pebble",
                     "Sand", "Fabric", "SmoothPlastic", "Metal", "WoodPlanks", "Cobblestone", "Air",
                     "Water", "Rock", "Glacier", "Snow", "Sandstone", "Mud", "Basalt", "Ground",
                     "CrackedLava", "Neon", "Glass", "Asphalt", "LeafyGrass", "Salt", "Limestone",
                     "Pavement", "ForceField"}),
+                MaterialPattern = def_enum({"Regular", "Organic"}),
                 MembershipType = def_enum({"None", "BuildersClub", "TurboBuildersClub",
                     "OutrageousBuildersClub", "Premium"}),
+                MeshPartDetailLevel = def_enum({"DistanceBased", "Level01", "Level02", "Level03",
+                    "Level04"}),
+                MeshPartHeadsAndAccessories = def_enum({"Default", "Disabled", "Enabled"}),
+                MeshScaleUnit = def_enum({"Stud", "Meter", "CM", "MM", "Foot", "Inch"}),
                 MeshType = def_enum({"Head", "Torso", "Wedge", "Prism", "Pyramid", "ParallelRamp",
                     "RightAngleRamp", "CornerWedge", "Brick", "Sphere", "Cylinder", "FileMesh"}),
                 MessageType = def_enum({"MessageOutput", "MessageInfo", "MessageWarning",
                     "MessageError"}),
+                ModelLevelOfDetail = def_enum({"Automatic", "StreamingMesh", "Disabled"}),
                 ModifierKey = def_enum({"Alt", "Ctrl", "Meta", "Shift"}),
                 MouseBehavior = def_enum({"Default", "LockCenter", "LockCurrentPosition"}),
                 MoveState = def_enum({"Stopped", "Coasting", "Pushing", "Stopping", "AirFree"}),
                 NameOcclusion = def_enum({"OccludeAll", "EnemyOcclusion", "NoOcclusion"}),
                 NetworkOwnership = def_enum({"Automatic", "Manual", "OnContact"}),
+                NewAnimationRuntimeSetting = def_enum({"Default", "Disabled", "Enabled"}),
                 NormalId = def_enum({"Top", "Bottom", "Back", "Front", "Right", "Left"}),
+                OrientationAlignmentMode = def_enum({"OneAttachment", "TwoAttachment"}),
+                OutfitSource = def_enum({"All", "Created", "Purchased"}),
                 OutputLayoutMode = def_enum({"Horizontal", "Vertical"}),
                 OverrideMouseIconBehavior = def_enum({"None", "ForceShow", "ForceHide"}),
-                PacketPriority = def_enum({"IMMEDIATE_PRIORITY", "HIGH_PRIORITY",
-                    "MEDIUM_PRIORITY", "LOW_PRIORITY"}),
+                PackagePermission = def_enum({"None", "NoAccess", "Revoked", "UseView", "Edit",
+                    "Own"}),
                 PartType = def_enum({"Ball", "Block", "Cylinder"}),
+                ParticleEmitterShape = def_enum({"Box", "Sphere", "Cylinder", "Disc"}),
+                ParticleEmitterShapeInOut = def_enum({"Outward", "Inward", "InAndOut"}),
+                ParticleEmitterShapeStyle = def_enum({"Volume", "Surface"}),
+                ParticleFlipbookLayout = def_enum({"None", "TwoByTwo", "FourByFour",
+                    "EightByEight"}),
+                ParticleFlipbookMode = def_enum({"Loop", "OneShot", "PingPong", "Random"}),
+                ParticleOrientation = def_enum({"FacingCamera", "FacingCameraWorldUp",
+                    "VelocityParallel", "VelocityPerpendicular"}),
                 PathStatus = def_enum({"Success", "ClosestNoPath", "ClosestOutOfRange",
                     "FailStartNotEmpty", "FailFinishNotEmpty", "NoPath"}),
-                PathWaypointAction = def_enum({"Walk", "Jump"}),
+                PathWaypointAction = def_enum({"Walk", "Jump", "Custom"}),
                 PermissionLevelShown = def_enum({"Game", "RobloxGame", "RobloxScript", "Studio",
                     "Roblox"}),
+                PhysicsSimulationRate = def_enum({"Fixed240Hz", "Fixed120Hz", "Fixed60Hz"}),
+                PhysicsSteppingMethod = def_enum({"Default", "Fixed", "Adaptive"}),
                 Platform = def_enum({"Windows", "OSX", "IOS", "Android", "XBoxOne", "PS4", "PS3",
                     "XBox360", "WiiU", "NX", "Ouya", "AndroidTV", "Chromecast", "Linux", "SteamOS",
                     "WebOS", "DOS", "BeOS", "UWP", "None"}),
@@ -606,17 +738,25 @@ stds.roblox = {
                 PlayerChatType = def_enum({"All", "Team", "Whisper"}),
                 PoseEasingDirection = def_enum({"Out", "InOut", "In"}),
                 PoseEasingStyle = def_enum({"Linear", "Constant", "Elastic", "Cubic", "Bounce"}),
+                PositionAlignmentMode = def_enum({"OneAttachment", "TwoAttachment"}),
                 PrivilegeType = def_enum({"Owner", "Admin", "Member", "Visitor", "Banned"}),
+                ProductLocationRestriction = def_enum({"AvatarShop", "AllowedGames", "AllGames"}),
                 ProductPurchaseDecision = def_enum({"NotProcessedYet", "PurchaseGranted"}),
+                PropertyStatus = def_enum({"Ok", "Warning", "Error"}),
+                ProximityPromptExclusivity = def_enum({"OnePerButton", "OneGlobally", "AlwaysShow"}),
+                ProximityPromptInputType = def_enum({"Keyboard", "Gamepad", "Touch"}),
+                ProximityPromptStyle = def_enum({"Default", "Custom"}),
                 QualityLevel = def_enum({"Automatic", "Level01", "Level02", "Level03", "Level04",
                     "Level05", "Level06", "Level07", "Level08", "Level09", "Level10", "Level11",
                     "Level12", "Level13", "Level14", "Level15", "Level16", "Level17", "Level18",
                     "Level19", "Level20", "Level21"}),
                 R15CollisionType = def_enum({"OuterBox", "InnerBox"}),
                 RaycastFilterType = def_enum({"Blacklist", "Whitelist"}),
-                RenderFidelity = def_enum({"Automatic", "Precise"}),
+                RenderFidelity = def_enum({"Automatic", "Precise", "Performance"}),
                 RenderPriority = def_enum({"First", "Input", "Camera", "Character", "Last"}),
                 RenderingTestComparisonMethod = def_enum({"psnr", "diff"}),
+                ReplicateInstanceDestroySetting = def_enum({"Default", "Disabled", "Enabled"}),
+                ResamplerMode = def_enum({"Default", "Pixelated"}),
                 ReturnKeyType = def_enum({"Default", "Done", "Go", "Next", "Search", "Send"}),
                 ReverbType = def_enum({"NoReverb", "GenericReverb", "PaddedCell", "Room",
                     "Bathroom", "LivingRoom", "StoneRoom", "Auditorium", "ConcertHall", "Cave",
@@ -625,7 +765,9 @@ stds.roblox = {
                     "UnderWater"}),
                 RibbonTool = def_enum({"Select", "Scale", "Rotate", "Move", "Transform",
                     "ColorPicker", "MaterialPicker", "Group", "Ungroup", "None"}),
+                RigType = def_enum({"R15", "Rthro", "RthroNarrow", "Custom", "None"}),
                 RollOffMode = def_enum({"Inverse", "Linear", "InverseTapered", "LinearSquare"}),
+                RotationOrder = def_enum({"XYZ", "XZY", "YZX", "YXZ", "ZXY", "ZYX"}),
                 RotationType = def_enum({"MovementRelative", "CameraRelative"}),
                 RuntimeUndoBehavior = def_enum({"Aggregate", "Snapshot", "Hybrid"}),
                 SaveFilter = def_enum({"SaveAll", "SaveWorld", "SaveGame"}),
@@ -637,43 +779,64 @@ stds.roblox = {
                     "Portrait", "Sensor"}),
                 ScrollBarInset = def_enum({"None", "ScrollBar", "Always"}),
                 ScrollingDirection = def_enum({"X", "Y", "XY"}),
+                SelectionBehavior = def_enum({"Escape", "Stop"}),
                 ServerAudioBehavior = def_enum({"Enabled", "Muted", "OnlineGame"}),
+                SignalBehavior = def_enum({"Default", "Immediate", "Deferred", "AncestryDeferred"}),
                 SizeConstraint = def_enum({"RelativeXY", "RelativeXX", "RelativeYY"}),
+                SortDirection = def_enum({"Ascending", "Descending"}),
                 SortOrder = def_enum({"LayoutOrder", "Name", "Custom"}),
-                SoundType = def_enum({"NoSound", "Boing", "Bomb", "Break", "Click", "Clock",
-                    "Slingshot", "Page", "Ping", "Snap", "Splat", "Step", "StepOn", "Swoosh",
-                    "Victory"}),
                 SpecialKey = def_enum({"Insert", "Home", "End", "PageUp", "PageDown", "ChatHotkey"}),
                 StartCorner = def_enum({"TopLeft", "TopRight", "BottomLeft", "BottomRight"}),
                 Status = def_enum({"Poison", "Confusion"}),
+                StreamOutBehavior = def_enum({"Default", "LowMemory", "Opportunistic"}),
                 StreamingPauseMode = def_enum({"Default", "Disabled", "ClientPhysicsPause"}),
-                StudioDataModelType = def_enum({"Edit", "PlayClient", "PlayServer", "RobloxPlugin",
-                    "UserPlugin", "None"}),
+                StudioCloseMode = def_enum({"None", "CloseStudio", "CloseDoc"}),
+                StudioDataModelType = def_enum({"Edit", "PlayClient", "PlayServer", "Standalone",
+                    "None"}),
+                StudioScriptEditorColorCategories = def_enum({"Default", "Operator", "Number",
+                    "String", "Comment", "Keyword", "Builtin", "Method", "Property", "Nil", "Bool",
+                    "Function", "Local", "Self", "LuauKeyword", "FunctionName", "TODO",
+                    "Background", "SelectionText", "SelectionBackground",
+                    "FindSelectionBackground", "MatchingWordBackground", "Warning", "Error",
+                    "Whitespace", "ActiveLine", "DebuggerCurrentLine", "DebuggerErrorLine",
+                    "Ruler", "Bracket", "MenuPrimaryText", "MenuSecondaryText", "MenuSelectedText",
+                    "MenuBackground", "MenuSelectedBackground", "MenuScrollbarBackground",
+                    "MenuScrollbarHandle", "MenuBorder", "DocViewCodeBackground"}),
+                StudioScriptEditorColorPresets = def_enum({"RobloxDefault", "Extra1", "Extra2",
+                    "Custom"}),
                 StudioStyleGuideColor = def_enum({"MainBackground", "Titlebar", "Dropdown",
                     "Tooltip", "Notification", "ScrollBar", "ScrollBarBackground", "TabBar", "Tab",
+                    "FilterButtonDefault", "FilterButtonHover", "FilterButtonChecked",
+                    "FilterButtonAccent", "FilterButtonBorder", "FilterButtonBorderAlt",
                     "RibbonTab", "RibbonTabTopBar", "Button", "MainButton", "RibbonButton",
                     "ViewPortBackground", "InputFieldBackground", "Item", "TableItem",
                     "CategoryItem", "GameSettingsTableItem", "GameSettingsTooltip", "EmulatorBar",
-                    "EmulatorDropDown", "ColorPickerFrame", "CurrentMarker", "Border", "Shadow",
-                    "Light", "Dark", "Mid", "MainText", "SubText", "TitlebarText", "BrightText",
-                    "DimmedText", "LinkText", "WarningText", "ErrorText", "InfoText",
-                    "SensitiveText", "ScriptSideWidget", "ScriptBackground", "ScriptText",
-                    "ScriptSelectionText", "ScriptSelectionBackground",
-                    "ScriptFindSelectionBackground", "ScriptMatchingWordSelectionBackground",
-                    "ScriptOperator", "ScriptNumber", "ScriptString", "ScriptComment",
-                    "ScriptPreprocessor", "ScriptKeyword", "ScriptBuiltInFunction",
+                    "EmulatorDropDown", "ColorPickerFrame", "CurrentMarker", "Border",
+                    "DropShadow", "Shadow", "Light", "Dark", "Mid", "MainText", "SubText",
+                    "TitlebarText", "BrightText", "DimmedText", "LinkText", "WarningText",
+                    "ErrorText", "InfoText", "SensitiveText", "ScriptSideWidget",
+                    "ScriptBackground", "ScriptText", "ScriptSelectionText",
+                    "ScriptSelectionBackground", "ScriptFindSelectionBackground",
+                    "ScriptMatchingWordSelectionBackground", "ScriptOperator", "ScriptNumber",
+                    "ScriptString", "ScriptComment", "ScriptKeyword", "ScriptBuiltInFunction",
                     "ScriptWarning", "ScriptError", "ScriptWhitespace", "ScriptRuler",
-                    "DebuggerCurrentLine", "DebuggerErrorLine", "DiffFilePathText",
-                    "DiffTextHunkInfo", "DiffTextNoChange", "DiffTextAddition", "DiffTextDeletion",
+                    "DocViewCodeBackground", "DebuggerCurrentLine", "DebuggerErrorLine",
+                    "ScriptEditorCurrentLine", "DiffFilePathText", "DiffTextHunkInfo",
+                    "DiffTextNoChange", "DiffTextAddition", "DiffTextDeletion",
                     "DiffTextSeparatorBackground", "DiffTextNoChangeBackground",
                     "DiffTextAdditionBackground", "DiffTextDeletionBackground", "DiffLineNum",
                     "DiffLineNumSeparatorBackground", "DiffLineNumNoChangeBackground",
                     "DiffLineNumAdditionBackground", "DiffLineNumDeletionBackground",
-                    "DiffFilePathBackground", "DiffFilePathBorder", "Separator", "ButtonBorder",
-                    "ButtonText", "InputFieldBorder", "CheckedFieldBackground",
-                    "CheckedFieldBorder", "CheckedFieldIndicator", "HeaderSection", "Midlight",
-                    "StatusBar", "DialogButton", "DialogButtonText", "DialogButtonBorder",
-                    "DialogMainButton", "DialogMainButtonText"}),
+                    "DiffFilePathBackground", "DiffFilePathBorder", "ChatIncomingBgColor",
+                    "ChatIncomingTextColor", "ChatOutgoingBgColor", "ChatOutgoingTextColor",
+                    "ChatModeratedMessageColor", "Separator", "ButtonBorder", "ButtonText",
+                    "InputFieldBorder", "CheckedFieldBackground", "CheckedFieldBorder",
+                    "CheckedFieldIndicator", "HeaderSection", "Midlight", "StatusBar",
+                    "DialogButton", "DialogButtonText", "DialogButtonBorder", "DialogMainButton",
+                    "DialogMainButtonText", "InfoBarWarningBackground", "InfoBarWarningText",
+                    "ScriptMethod", "ScriptProperty", "ScriptNil", "ScriptBool", "ScriptFunction",
+                    "ScriptLocal", "ScriptSelf", "ScriptLuauKeyword", "ScriptFunctionName",
+                    "ScriptTodo", "ScriptBracket", "AttributeCog"}),
                 StudioStyleGuideModifier = def_enum({"Default", "Selected", "Pressed", "Disabled",
                     "Hover"}),
                 Style = def_enum({"AlternatingSupports", "BridgeStyleSupports", "NoSupports"}),
@@ -683,15 +846,24 @@ stds.roblox = {
                     "Hinge", "Motor", "SteppingMotor", "SmoothNoOutlines"}),
                 SwipeDirection = def_enum({"Right", "Left", "Up", "Down", "None"}),
                 TableMajorAxis = def_enum({"RowMajor", "ColumnMajor"}),
-                Technology = def_enum({"Compatibility", "Voxel", "ShadowMap", "Legacy"}),
+                Technology = def_enum({"Compatibility", "Voxel", "ShadowMap", "Legacy", "Future"}),
+                TeleportMethod = def_enum({"TeleportToSpawnByName", "TeleportToPlaceInstance",
+                    "TeleportToPrivateServer", "TeleportPartyAsync", "TeleportUnknown"}),
                 TeleportResult = def_enum({"Success", "Failure", "GameNotFound", "GameEnded",
                     "GameFull", "Unauthorized", "Flooded", "IsTeleporting"}),
                 TeleportState = def_enum({"RequestedFromServer", "Started", "WaitingForServer",
                     "Failed", "InProgress"}),
                 TeleportType = def_enum({"ToPlace", "ToInstance", "ToReservedServer"}),
+                TerrainAcquisitionMethod = def_enum({"None", "Legacy", "Template", "Generate",
+                    "Import", "Convert", "EditAddTool", "EditSeaLevelTool", "EditReplaceTool",
+                    "RegionFillTool", "RegionPasteTool", "Other"}),
+                TerrainFace = def_enum({"Top", "Side", "Bottom"}),
+                TextChatMessageStatus = def_enum({"Unknown", "Success", "Sending",
+                    "TextFilterFailed", "Floodchecked", "InvalidPrivacySettings",
+                    "InvalidTextChannelPermissions", "MessageTooLong"}),
                 TextFilterContext = def_enum({"PublicChat", "PrivateChat"}),
                 TextInputType = def_enum({"Default", "NoSuggestions", "Number", "Email", "Phone",
-                    "Password"}),
+                    "Password", "PasswordShown", "Username", "OneTimePassword"}),
                 TextTruncate = def_enum({"None", "AtEnd"}),
                 TextXAlignment = def_enum({"Left", "Center", "Right"}),
                 TextYAlignment = def_enum({"Top", "Center", "Bottom"}),
@@ -710,10 +882,11 @@ stds.roblox = {
                 TouchCameraMovementMode = def_enum({"Default", "Follow", "Classic", "Orbital"}),
                 TouchMovementMode = def_enum({"Default", "Thumbstick", "DPad", "Thumbpad",
                     "ClickToMove", "DynamicThumbstick"}),
+                TriStateBoolean = def_enum({"Unknown", "True", "False"}),
                 TweenStatus = def_enum({"Canceled", "Completed"}),
                 UITheme = def_enum({"Light", "Dark"}),
                 UiMessageType = def_enum({"UiMessageError", "UiMessageInfo"}),
-                UploadSetting = def_enum({"Never", "Ask", "Always"}),
+                UsageContext = def_enum({"Default", "Preview"}),
                 UserCFrame = def_enum({"Head", "LeftHand", "RightHand"}),
                 UserInputState = def_enum({"Begin", "Change", "End", "Cancel", "None"}),
                 UserInputType = def_enum({"MouseButton1", "MouseButton2", "MouseButton3",
@@ -722,15 +895,25 @@ stds.roblox = {
                     "Gamepad7", "Gamepad8", "TextInput", "InputMethod", "None"}),
                 VRTouchpad = def_enum({"Left", "Right"}),
                 VRTouchpadMode = def_enum({"Touch", "VirtualThumbstick", "ABXY"}),
+                VelocityConstraintMode = def_enum({"Line", "Plane", "Vector"}),
                 VerticalAlignment = def_enum({"Center", "Top", "Bottom"}),
                 VerticalScrollBarPosition = def_enum({"Left", "Right"}),
                 VibrationMotor = def_enum({"Large", "Small", "LeftTrigger", "RightTrigger",
                     "LeftHand", "RightHand"}),
-                VideoQualitySettings = def_enum({"LowResolution", "MediumResolution",
-                    "HighResolution"}),
+                VirtualCursorMode = def_enum({"Default", "Disabled", "Enabled"}),
                 VirtualInputMode = def_enum({"Recording", "Playing", "None"}),
+                VoiceChatState = def_enum({"Idle", "Joining", "JoiningRetry", "Joined", "Leaving",
+                    "Ended", "Failed"}),
                 WaterDirection = def_enum({"NegX", "X", "NegY", "Y", "NegZ", "Z"}),
                 WaterForce = def_enum({"None", "Small", "Medium", "Strong", "Max"}),
+                WrapLayerAutoSkin = def_enum({"Disabled", "EnabledPreserve", "EnabledOverride"}),
+                WrapLayerDebugMode = def_enum({"None", "BoundCage", "LayerCage",
+                    "BoundCageAndLinks", "Reference", "Rbf", "OuterCage",
+                    "ReferenceMeshAfterMorph", "HSROuterDetail", "HSROuter", "HSRInner",
+                    "HSRInnerReverse"}),
+                WrapTargetDebugMode = def_enum({"None", "TargetCageOriginal",
+                    "TargetCageCompressed", "TargetCageInterface", "TargetLayerCageOriginal",
+                    "TargetLayerCageCompressed", "TargetLayerInterface", "Rbf", "OuterCageDetail"}),
                 ZIndexBehavior = def_enum({"Global", "Sibling"}),
             }
         }
@@ -738,27 +921,25 @@ stds.roblox = {
 }
 
 stds.testez = {
-    read_globals = {
-        "describe",
-        "it", "itFOCUS", "itSKIP",
-        "FOCUS", "SKIP", "HACK_NO_XPCALL",
-        "expect",
-    }
+	read_globals = {
+		"describe",
+		"it", "itFOCUS", "itSKIP",
+		"FOCUS", "SKIP", "HACK_NO_XPCALL",
+		"expect",
+	}
 }
 
 stds.plugin = {
-    read_globals = {
-        "plugin",
-        "DebuggerManager",
-    }
+	read_globals = {
+		"plugin",
+		"DebuggerManager",
+	}
 }
 
-ignore = {
-    "212", -- unused arguments
-}
+ignore = {}
 
 std = "lua51+roblox"
 
 files["**/*.spec.lua"] = {
-    std = "+testez",
+	std = "+testez",
 }
