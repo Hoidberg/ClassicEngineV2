@@ -135,14 +135,11 @@ end
 
 local function isSunOccluded(sunDir)
 	local origin = c.CFrame.p + (c.CFrame.lookVector * 2)
-	local ray = Ray.new(origin, origin + (sunDir * 10e6))
 	local ignore = {}
 	local occluded = false
 	while true do
 		local params = RaycastParams.new()
 		params.FilterDescendantsInstances = ignore
-		params.FilterType = Enum.RaycastFilterType.Blacklist
-		params.IgnoreWater = false
 		local hit = workspace:Raycast(origin, origin + (sunDir * 10e6), params).Instance
 		if hit then
 			local t = hit.Transparency + hit.LocalTransparencyModifier
