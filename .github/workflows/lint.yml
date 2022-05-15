@@ -2,10 +2,10 @@ name: luacheck
 on: [push, pull_request]
 jobs:
   lint:
-    runs-on: Ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - name: lint
-        uses: rwilliaise/roblox-luacheck@master
+        uses: Roang-zero1/factorio-mod-luacheck@master
         with:
           luacheckrc_url: https://raw.githubusercontent.com/Hoidberg/ClassicEngineV2/master/.luacheckrc
