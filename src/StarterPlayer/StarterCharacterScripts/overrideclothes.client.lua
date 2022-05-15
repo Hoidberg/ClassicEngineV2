@@ -2,12 +2,14 @@ game:GetService("RunService").Heartbeat:Connect(function()
 	-- check if the script is in the players character
 	if script.Parent:IsA("Model") and script.Parent:FindFirstChild("Humanoid") then
 		if not script.Parent:FindFirstChildWhichIsA("Shirt") then
-			local shirt = Instance.new("Shirt", script.Parent) do
+			local shirt = Instance.new("Shirt") do
+				shirt.Parent = script.Parent
 				shirt.Name = "oldShirt"
 				shirt.ShirtTemplate = "rbxassetid://1110695025"
 			end
 		elseif not script.Parent:FindFirstChildWhichIsA("Pants") then
-			local pants = Instance.new("Pants", script.Parent) do
+			local pants = Instance.new("Pants") do
+				pants.Parent = script.Parent
 				pants.Name = "oldPants"
 				pants.PantsTemplate = "rbxassetid://1110695628"
 			end

@@ -81,16 +81,16 @@ local function getToolAnim(tool)
 	return nil
 end
 local function animateTool()
-	if (toolAnim == "None") then
+	if toolAnim == "None" then
 		RightShoulder.DesiredAngle = 1.57
 		return
 	end
-	if (toolAnim == "Slash") then
+	if toolAnim == "Slash" then
 		RightShoulder.MaxVelocity = 0.5
 		RightShoulder.DesiredAngle = 0
 		return
 	end
-	if (toolAnim == "Lunge") then
+	if toolAnim == "Lunge" then
 		RightShoulder.MaxVelocity = 0.5
 		LeftShoulder.MaxVelocity = 0.5
 		RightHip.MaxVelocity = 0.5
@@ -105,25 +105,25 @@ end
 local function move(time)
 	local amplitude
 	local frequency
-	if (pose == "Jumping") then
+	if pose == "Jumping" then
 		moveJump()
 		return
 	end
-	if (pose == "FreeFall") then
+	if pose == "FreeFall" then
 		moveFreeFall()
 		return
 	end
-	if (pose == "Seated") then
+	if pose == "Seated" then
 		moveSit()
 		return
 	end
 	local climbFudge = 0
-	if (pose == "Running") then
+	if pose == "Running" then
 		RightShoulder.MaxVelocity = 0.15
 		LeftShoulder.MaxVelocity = 0.15
 		amplitude = 1
 		frequency = 9
-	elseif (pose == "Climbing") then
+	elseif pose == "Climbing" then
 		RightShoulder.MaxVelocity = 0.5
 		LeftShoulder.MaxVelocity = 0.5
 		amplitude = 1
