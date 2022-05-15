@@ -12,8 +12,9 @@ local completed, result = xpcall(function()
 	local StarterPlayer = game:GetService("StarterPlayer")
 
 	local TestEZ = require(ReplicatedStorage.TestEZ)
+
 	failureCount = 0
-	
+
 	for _, v in ipairs(StarterGui:GetChildren()) do
 		if v:IsA("BaseScript") then
 			local results = TestEZ.TestBootstrap:run(
@@ -21,8 +22,8 @@ local completed, result = xpcall(function()
 				TestEZ.Reporters.TextReporter
 			)
 			failureCount = failureCount + results.failureCount
-	
-	for _, v in ipairs(StarterGui:GetDescendants()) do
+
+	for _, v in ipairs(StarterPlayer:GetDescendants()) do
 		if v:IsA("BaseScript") then
 			local results = TestEZ.TestBootstrap:run(
 				{ v },
@@ -30,7 +31,7 @@ local completed, result = xpcall(function()
 			)
 			failureCount = failureCount + results.failureCount
 
-	return results.failureCount == 0 and 0 or 1
+	return failureCount == 0 and 0 or 1
 end, debug.traceback)
 
 local statusCode
