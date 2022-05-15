@@ -140,14 +140,14 @@ local function isSunOccluded(sunDir)
 	while true do
 		local params = RaycastParams.new()
 		params.FilterDescendantsInstances = ignore
-		local hit = workspace:Raycast(origin, origin + (sunDir * 10e6), params).Instance
+		local hit = workspace:Raycast(origin, origin + (sunDir * 10e6), params)
 		if hit then
-			local t = hit.Transparency + hit.LocalTransparencyModifier
+			local t = hit.Instance.Transparency + hit.Instance.LocalTransparencyModifier
 			if t <= 0 then
 				occluded = true
 				break
 			else
-				table.insert(ignore, hit)
+				table.insert(ignore, hit.Instance)
 			end
 		else
 			break
