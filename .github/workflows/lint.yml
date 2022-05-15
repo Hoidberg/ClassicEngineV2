@@ -16,7 +16,3 @@ jobs:
 
       - name: Run Selene
         run: selene src
-
-      - name: Run moonwave-extractor
-        if: success() || failure()
-        run: moonwave-extractor extract src
