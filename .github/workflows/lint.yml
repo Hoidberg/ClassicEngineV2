@@ -1,18 +1,11 @@
-name: lint
-on: [push]
+name: luacheck
+on: [push, pull_request]
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: Roblox/setup-foreman@v1
+      - uses: actions/checkout@master
+      - name: lint
+        uses: rwilliaise/roblox-luacheck@master
         with:
-          version: "^1.0.0"
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate standard library
-        run: selene generate-roblox-std
-
-      - name: Run Selene
-        run: selene src
+          luacheckrc_url: https://raw.githubusercontent.com/Hoidberg/ClassicEngineV2/master/.luacheckrc
