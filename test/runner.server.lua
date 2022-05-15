@@ -22,6 +22,7 @@ local completed, result = xpcall(function()
 				TestEZ.Reporters.TextReporter
 			)
 			failureCount = failureCount + results.failureCount
+		end
 	end
 
 	for _, v in ipairs(StarterPlayer:GetDescendants()) do
@@ -31,6 +32,7 @@ local completed, result = xpcall(function()
 				TestEZ.Reporters.TextReporter
 			)
 			failureCount = failureCount + results.failureCount
+		end
 	end
 
 	return failureCount == 0 and 0 or 1
