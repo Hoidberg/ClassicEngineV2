@@ -5,7 +5,7 @@
 -- If you add any dependencies, add them to this table so they'll be loaded!
 local LOAD_MODULES = {
 	-- we run lua5.1/lemur post-darklua with Luau types stripped
-	{"src", "Rodux"},
+	{"src", "ClassicEngineV2"},
 	{"modules/testez/src", "TestEZ"},
 }
 
@@ -19,13 +19,13 @@ local lemur = require("modules.lemur")
 local habitat = lemur.Habitat.new()
 
 -- We'll put all of our library code and dependencies here
-local ReplicatedStorage = habitat.game:GetService("ReplicatedStorage")
+local game = habitat.game
 
 -- Load all of the modules specified above
 for _, module in ipairs(LOAD_MODULES) do
 	local container = habitat:loadFromFs(module[1])
 	container.Name = module[2]
-	container.Parent = ReplicatedStorage
+	container.Parent = game
 end
 
 -- When Lemur implements a proper scheduling interface, we'll use that instead.
