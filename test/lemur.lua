@@ -2,13 +2,6 @@
 	Loads our library and all of its dependencies, then runs tests using TestEZ.
 ]]
 
--- If you add any dependencies, add them to this table so they'll be loaded!
-local LOAD_MODULES = {
-	-- we run lua5.1/lemur post-darklua with Luau types stripped
-	{"src", "ClassicEngineV2"},
-	{"modules/testez/src", "TestEZ"},
-}
-
 -- This makes sure we can load Lemur and other libraries that depend on init.lua
 package.path = package.path .. ";?/init.lua"
 
@@ -21,11 +14,18 @@ local habitat = lemur.Habitat.new()
 -- We'll put all of our library code and dependencies here
 local game = habitat.game
 
+-- If you add any dependencies, add them to this table so they'll be loaded!
+local LOAD_MODULES = {
+	-- we run lua5.1/lemur post-darklua with Luau types stripped
+	{"src", "ClassicEngineV2", game},
+	{"modules/testez/src", "TestEZ", game:GetService("ReplicatedStorage")},
+}
+
 -- Load all of the modules specified above
 for _, module in ipairs(LOAD_MODULES) do
 	local container = habitat:loadFromFs(module[1])
 	container.Name = module[2]
-	container.Parent = game
+	container.Parent = module[3]
 end
 
 -- When Lemur implements a proper scheduling interface, we'll use that instead.
