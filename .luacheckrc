@@ -281,6 +281,8 @@ stds.roblox = {
     read_globals = {
         -- Methods
         delay = empty;
+        ipairs = empty;
+        pairs = empty;
         settings = empty;
         spawn = empty;
         tick = empty;
