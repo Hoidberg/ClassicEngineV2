@@ -938,9 +938,10 @@ stds.plugin = {
 
 ignore = {
     "212", -- unused arguments
+    "211",
 }
 
-std = "lua51+roblox"
+std = "roblox"
 
 files["**/*.spec.lua"] = {
 	std = "+testez",
