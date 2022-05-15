@@ -8,7 +8,7 @@ local isRobloxCli, ProcessService = pcall(game.GetService, game, "ProcessService
 
 local completed, result = xpcall(function()
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local StarterGui = game:GetService("StarterGui")
+	local StarterGui = game.StarterGui
 	local StarterPlayer = game:GetService("StarterPlayer")
 
 	local TestEZ = require(ReplicatedStorage.TestEZ)
