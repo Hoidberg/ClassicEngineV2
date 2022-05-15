@@ -275,6 +275,7 @@ stds.roblox = {
                 DescendantAdded = read_write;
                 DescendantRemoving = read_write;
                 Destroying = read_write;
+                FindPartOnRayWithIgnoreList = read_write;
             }
         },
     },
