@@ -20,7 +20,7 @@ local completed, result = xpcall(function()
 				{ v },
 				TestEZ.Reporters.TextReporter
 			)
-			failureCount += results.failureCount
+			failureCount = failureCount + results.failureCount
 	
 	for _, v in ipairs(StarterGui:GetDescendants()) do
 		if v:IsA("BaseScript") then
@@ -28,7 +28,7 @@ local completed, result = xpcall(function()
 				{ v },
 				TestEZ.Reporters.TextReporter
 			)
-			failureCount += results.failureCount
+			failureCount = failureCount + results.failureCount
 
 	return results.failureCount == 0 and 0 or 1
 end, debug.traceback)
