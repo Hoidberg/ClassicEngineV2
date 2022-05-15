@@ -139,7 +139,11 @@ local function isSunOccluded(sunDir)
 	local ignore = {}
 	local occluded = false
 	while true do
-		local hit = workspace:FindPartOnRayWithIgnoreList(ray, ignore)
+		local params = RaycastParams.new()
+		params.FilterDescendantsInstances = ignore
+		params.FilterType = Enum.RaycastFilterType.Blacklist
+		params.IgnoreWater = false
+		local hit = workspace:Raycast(origin, origin + (sunDir * 10e6), params).Instance
 		if hit then
 			local t = hit.Transparency + hit.LocalTransparencyModifier
 			if t <= 0 then
