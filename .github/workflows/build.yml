@@ -20,28 +20,3 @@ jobs:
       - name: Run moonwave-extractor
         if: success() || failure()
         run: moonwave-extractor extract src
-
-  release:
-    needs: lint
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: "Setup Node"
-        uses: actions/setup-node@v2
-        env:
-          NPM_TOKEN: '' # https://github.com/JS-DevTools/npm-publish/issues/15
-        with:
-          cache-dependency-path: package.json # we don't have a package-lock.json so we'll use this instead...
-          node-version: "12"
-
-      - run: npm install --no-save
-
-      - name: Create Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx auto shipit
