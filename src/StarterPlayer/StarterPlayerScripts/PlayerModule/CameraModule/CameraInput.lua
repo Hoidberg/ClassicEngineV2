@@ -4,7 +4,6 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserGameSettings = UserSettings():GetService("UserGameSettings")
 local VRService = game:GetService("VRService")
-local StarterGui = game:GetService("StarterGui")
 
 local player = Players.LocalPlayer
 
@@ -51,7 +50,7 @@ local rmbDown, rmbUp do
 		end
 	end)
 
-	UserInputService.InputEnded:Connect(function(input, gpe)
+	UserInputService.InputEnded:Connect(function(input, _)
 		if input.UserInputType == Enum.UserInputType.MouseButton2 then
 			rmbUpBindable:Fire()
 		end
@@ -145,7 +144,6 @@ do
 		panInputCount = math.max(0, panInputCount - 1)
 	end
 
-	local touchPitchSensitivity = 1
 	local gamepadState = {
 		Thumbstick2 = Vector2.new(),
 	}
