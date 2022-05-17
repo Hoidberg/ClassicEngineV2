@@ -8,7 +8,7 @@ jobs:
 
       - uses: Roblox/setup-foreman@v1
         with:
-          version: "^1.0.0"
+          version: "^1.1.0"
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate standard library
