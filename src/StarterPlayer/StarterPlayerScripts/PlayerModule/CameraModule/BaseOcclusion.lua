@@ -18,14 +18,14 @@ function BaseOcclusion.new()
 end
 
 -- Called when character is added
-function BaseOcclusion:CharacterAdded(_: Model, _: Player)
+function BaseOcclusion:CharacterAdded(char: Model, player: Player)
 end
 
 -- Called when character is about to be removed
-function BaseOcclusion:CharacterRemoving(_: Model, _: Player)
+function BaseOcclusion:CharacterRemoving(char: Model, player: Player)
 end
 
-function BaseOcclusion:OnCameraSubjectChanged(_)
+function BaseOcclusion:OnCameraSubjectChanged(newSubject)
 end
 
 --[[ Derived classes are required to override and implement all of the following functions ]]--
@@ -35,11 +35,11 @@ function BaseOcclusion:GetOcclusionMode(): Enum.DevCameraOcclusionMode?
 	return nil
 end
 
-function BaseOcclusion:Enable(_: boolean)
+function BaseOcclusion:Enable(enabled: boolean)
 	warn("BaseOcclusion Enable must be overridden by derived classes")
 end
 
-function BaseOcclusion:Update(_: number, desiredCameraCFrame: CFrame, desiredCameraFocus: CFrame)
+function BaseOcclusion:Update(dt: number, desiredCameraCFrame: CFrame, desiredCameraFocus: CFrame)
 	warn("BaseOcclusion Update must be overridden by derived classes")
 	return desiredCameraCFrame, desiredCameraFocus
 end
