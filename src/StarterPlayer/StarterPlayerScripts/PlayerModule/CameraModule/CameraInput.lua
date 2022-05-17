@@ -270,8 +270,8 @@ do
 			local lastPinchDiameter: number?
 
 			function touchBegan(input: InputObject, sunk: boolean)
-				assert(input.UserInputType == Enum.UserInputType.Touch)
-				assert(input.UserInputState == Enum.UserInputState.Begin)
+				assert(input.UserInputType == Enum.UserInputType.Touch, nil)
+				assert(input.UserInputState == Enum.UserInputState.Begin, nil)
 				
 				if dynamicThumbstickInput == nil and isInDynamicThumbstickArea(input.Position) and not sunk then
 					-- any finger down starting in the dynamic thumbstick area should always be
@@ -290,8 +290,8 @@ do
 			end
 
 			function touchEnded(input: InputObject, sunk: boolean)
-				assert(input.UserInputType == Enum.UserInputType.Touch)
-				assert(input.UserInputState == Enum.UserInputState.End)
+				assert(input.UserInputType == Enum.UserInputType.Touch, nil)
+				assert(input.UserInputState == Enum.UserInputState.End, nil)
 				
 				-- reset the DT input
 				if input == dynamicThumbstickInput then
@@ -309,8 +309,8 @@ do
 			end
 
 			function touchChanged(input, sunk)
-				assert(input.UserInputType == Enum.UserInputType.Touch)
-				assert(input.UserInputState == Enum.UserInputState.Change)
+				assert(input.UserInputType == Enum.UserInputType.Touch, nil)
+				assert(input.UserInputState == Enum.UserInputState.Change, nil)
 				
 				-- ignore movement from the DT finger
 				if input == dynamicThumbstickInput then
