@@ -146,34 +146,46 @@ function BaseCamera.new()
 		self:OnCharacterAdded(char)
 	end)
 
-	if self.cameraChangedConn then self.cameraChangedConn:Disconnect() end
+	if self.cameraChangedConn then
+		self.cameraChangedConn:Disconnect()
+	end
 	self.cameraChangedConn = workspace:GetPropertyChangedSignal("CurrentCamera"):Connect(function()
 		self:OnCurrentCameraChanged()
 	end)
 	self:OnCurrentCameraChanged()
 
-	if self.playerCameraModeChangeConn then self.playerCameraModeChangeConn:Disconnect() end
+	if self.playerCameraModeChangeConn then
+		self.playerCameraModeChangeConn:Disconnect()
+	end
 	self.playerCameraModeChangeConn = player:GetPropertyChangedSignal("CameraMode"):Connect(function()
 		self:OnPlayerCameraPropertyChange()
 	end)
 
-	if self.minDistanceChangeConn then self.minDistanceChangeConn:Disconnect() end
+	if self.minDistanceChangeConn then
+		self.minDistanceChangeConn:Disconnect()
+	end
 	self.minDistanceChangeConn = player:GetPropertyChangedSignal("CameraMinZoomDistance"):Connect(function()
 		self:OnPlayerCameraPropertyChange()
 	end)
 
-	if self.maxDistanceChangeConn then self.maxDistanceChangeConn:Disconnect() end
+	if self.maxDistanceChangeConn then
+		self.maxDistanceChangeConn:Disconnect()
+	end
 	self.maxDistanceChangeConn = player:GetPropertyChangedSignal("CameraMaxZoomDistance"):Connect(function()
 		self:OnPlayerCameraPropertyChange()
 	end)
 
-	if self.playerDevTouchMoveModeChangeConn then self.playerDevTouchMoveModeChangeConn:Disconnect() end
+	if self.playerDevTouchMoveModeChangeConn then
+		self.playerDevTouchMoveModeChangeConn:Disconnect()
+	end
 	self.playerDevTouchMoveModeChangeConn = player:GetPropertyChangedSignal("DevTouchMovementMode"):Connect(function()
 		self:OnDevTouchMovementModeChanged()
 	end)
 	self:OnDevTouchMovementModeChanged() -- Init
 
-	if self.gameSettingsTouchMoveMoveChangeConn then self.gameSettingsTouchMoveMoveChangeConn:Disconnect() end
+	if self.gameSettingsTouchMoveMoveChangeConn then
+		self.gameSettingsTouchMoveMoveChangeConn:Disconnect()
+	end
 	self.gameSettingsTouchMoveMoveChangeConn = UserGameSettings:GetPropertyChangedSignal("TouchMovementMode"):Connect(function()
 		self:OnGameSettingsTouchMovementModeChanged()
 	end)
