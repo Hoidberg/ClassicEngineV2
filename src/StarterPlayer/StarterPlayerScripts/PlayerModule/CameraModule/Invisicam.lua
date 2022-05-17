@@ -500,7 +500,7 @@ function Invisicam:Update(dt: number, desiredCameraCFrame: CFrame, desiredCamera
 			end
 		end
 
-		if (hitPartCount > 0) then
+		if hitPartCount > 0 then
 			perPartTransparencyHeadTorsoHits = math.pow( ((0.5 * TARGET_TRANSPARENCY) + (0.5 * TARGET_TRANSPARENCY / hitPartCount)), 1 / hitPartCount )
 			perPartTransparencyOtherHits = math.pow( ((0.5 * TARGET_TRANSPARENCY_PERIPHERAL) + (0.5 * TARGET_TRANSPARENCY_PERIPHERAL / hitPartCount)), 1 / hitPartCount )
 		end
@@ -526,7 +526,7 @@ function Invisicam:Update(dt: number, desiredCameraCFrame: CFrame, desiredCamera
 		-- Check all decals and textures on the part
 		for _, child in pairs(hitPart:GetChildren()) do
 			if child:IsA('Decal') or child:IsA('Texture') then
-				if (child.Transparency < partTargetTransparency[hitPart]) then
+				if child.Transparency < partTargetTransparency[hitPart] then
 					partTargetTransparency[child] = partTargetTransparency[hitPart]
 					add(child)
 				end
