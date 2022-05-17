@@ -1,20 +1,20 @@
 # Changelog
 
-## [v0.9.0](https://github.com/Hoidberg/ClassicEngineV2/tree/v0.9.0) (2022-05-16)
+## [v2.9.0](https://github.com/Hoidberg/ClassicEngineV2/tree/v0.9.0) (2022-05-16)
 
-[Full Changelog](https://github.com/Hoidberg/ClassicEngineV2/compare/v0.6.0...v0.9.0)
+[Full Changelog](https://github.com/Hoidberg/ClassicEngineV2/compare/v2.6.0...v2.9.0)
 
-## [v0.6.0](https://github.com/Hoidberg/ClassicEngineV2/tree/v0.6.0) (2020-08-09)
+## [v2.6.0](https://github.com/Hoidberg/ClassicEngineV2/tree/v2.6.0) (2020-08-09)
 
-[Full Changelog](https://github.com/Hoidberg/ClassicEngineV2/compare/v0.5.1...v0.6.0)
+[Full Changelog](https://github.com/Hoidberg/ClassicEngineV2/compare/v2.5.1...v2.6.0)
 
 **Merged pull requests:**
 
 - Create LICENSE [\#1](https://github.com/Hoidberg/ClassicEngineV2/pull/1) ([Hoidberg](https://github.com/Hoidberg))
 
-## [v0.5.1](https://github.com/Hoidberg/ClassicEngineV2/tree/v0.5.1) (2020-08-04)
+## [v2.5.1](https://github.com/Hoidberg/ClassicEngineV2/tree/v2.5.1) (2020-08-04)
 
-[Full Changelog](https://github.com/Hoidberg/ClassicEngineV2/compare/6ca14c31fdb11b073b2836d1d8e9b49d75a54e72...v0.5.1)
+[Full Changelog](https://github.com/Hoidberg/ClassicEngineV2/compare/6ca14c31fdb11b073b2836d1d8e9b49d75a54e72...v2.5.1)
 
 
 
