@@ -1,4 +1,4 @@
-name: lint
+name: luacheck
 on: [push]
 jobs:
   lint:
