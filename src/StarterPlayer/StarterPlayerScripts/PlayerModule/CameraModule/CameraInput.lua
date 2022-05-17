@@ -208,7 +208,7 @@ do
 	end
 
 	do
-		local function thumbstick(action, state, input)
+		local function thumbstick(_, _, input)
 			local position = input.Position
 			gamepadState[input.KeyCode.Name] = Vector2.new(thumbstickCurve(position.X), -thumbstickCurve(position.Y))
 			if FFlagUserFlagEnableVRUpdate2 then
@@ -222,22 +222,22 @@ do
 			mouseState.Movement = Vector2.new(delta.X, delta.Y)
 		end
 		
-		local function mouseWheel(action, state, input)
+		local function mouseWheel(_, _, input)
 			mouseState.Wheel = input.Position.Z
 			return Enum.ContextActionResult.Pass
 		end
 		
-		local function keypress(action, state, input)
+		local function keypress(_, state, input)
 			keyboardState[input.KeyCode.Name] = state == Enum.UserInputState.Begin and 1 or 0
 		end
 		
-		local function gamepadZoomPress(action, state, input)
+		local function gamepadZoomPress(_, state, _)
 			if state == Enum.UserInputState.Begin then
 				gamepadZoomPressBindable:Fire()
 			end
 		end
 
-		local function gamepadReset(action, state, input)
+		local function gamepadReset(_, state, _)
 			if state == Enum.UserInputState.Begin then
 				gamepadResetBindable:Fire()
 			end
@@ -287,7 +287,7 @@ do
 				touches[input] = sunk
 			end
 
-			function touchEnded(input: InputObject, sunk: boolean)
+			function touchEnded(input: InputObject, _: boolean)
 				assert(input.UserInputType == Enum.UserInputType.Touch)
 				assert(input.UserInputState == Enum.UserInputState.End)
 				
