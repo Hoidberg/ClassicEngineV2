@@ -4,6 +4,7 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserGameSettings = UserSettings():GetService("UserGameSettings")
 local VRService = game:GetService("VRService")
+local StarterGui = game:GetService("StarterGui")
 
 local player = Players.LocalPlayer
 
@@ -50,7 +51,7 @@ local rmbDown, rmbUp do
 		end
 	end)
 
-	UserInputService.InputEnded:Connect(function(input, _)
+	UserInputService.InputEnded:Connect(function(input, gpe)
 		if input.UserInputType == Enum.UserInputType.MouseButton2 then
 			rmbUpBindable:Fire()
 		end
@@ -144,6 +145,7 @@ do
 		panInputCount = math.max(0, panInputCount - 1)
 	end
 
+	local touchPitchSensitivity = 1
 	local gamepadState = {
 		Thumbstick2 = Vector2.new(),
 	}
@@ -208,7 +210,7 @@ do
 	end
 
 	do
-		local function thumbstick(_, _, input)
+		local function thumbstick(action, state, input)
 			local position = input.Position
 			gamepadState[input.KeyCode.Name] = Vector2.new(thumbstickCurve(position.X), -thumbstickCurve(position.Y))
 			if FFlagUserFlagEnableVRUpdate2 then
@@ -222,22 +224,22 @@ do
 			mouseState.Movement = Vector2.new(delta.X, delta.Y)
 		end
 		
-		local function mouseWheel(_, _, input)
+		local function mouseWheel(action, state, input)
 			mouseState.Wheel = input.Position.Z
 			return Enum.ContextActionResult.Pass
 		end
 		
-		local function keypress(_, state, input)
+		local function keypress(action, state, input)
 			keyboardState[input.KeyCode.Name] = state == Enum.UserInputState.Begin and 1 or 0
 		end
 		
-		local function gamepadZoomPress(_, state, _)
+		local function gamepadZoomPress(action, state, input)
 			if state == Enum.UserInputState.Begin then
 				gamepadZoomPressBindable:Fire()
 			end
 		end
 
-		local function gamepadReset(_, state, _)
+		local function gamepadReset(action, state, input)
 			if state == Enum.UserInputState.Begin then
 				gamepadResetBindable:Fire()
 			end
@@ -287,7 +289,7 @@ do
 				touches[input] = sunk
 			end
 
-			function touchEnded(input: InputObject, _: boolean)
+			function touchEnded(input: InputObject, sunk: boolean)
 				assert(input.UserInputType == Enum.UserInputType.Touch)
 				assert(input.UserInputState == Enum.UserInputState.End)
 				
